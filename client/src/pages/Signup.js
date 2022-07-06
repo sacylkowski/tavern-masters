@@ -5,7 +5,7 @@ import React from 'react';
 const Signup = () => {
 
   return (
-    <main className="">
+    <main className="main">
       <div className="">
         <div className="card">
           <h4 className="card-header">Sign Up</h4>

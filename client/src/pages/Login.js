@@ -3,7 +3,7 @@ import React from 'react';
 
 const Login = () => {
   return (
-    <main className="">
+    <main className="main">
       <div className="">
         <div className="card">
           <h4 className="card-header">Login</h4>
