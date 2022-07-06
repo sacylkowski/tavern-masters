@@ -1,5 +1,6 @@
 body {
   font-family: 'Rubik', sans-serif;
+  background-image: url("img/Tavern.jpeg");
 }
 
 h1,
@@ -9,6 +10,9 @@ h4,
 h5,
 h6 {
   font-family: 'Rubik Mono One', sans-serif;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .small {
