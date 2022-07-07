@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const eventSchema = new Schema(
@@ -8,6 +8,10 @@ const eventSchema = new Schema(
             default: Date.now,
             get: timestamp => dateFormat(timestamp)
         },
+        username: {
+            type: String,
+            required: true
+          },
         eventGiverName: {
             type: String,
             required: 'There must be an event giver!',
@@ -51,6 +55,4 @@ const eventSchema = new Schema(
     }
 );
 
-const Event = model('Event', eventSchema);
-
-module.exports = Event;
+module.exports = eventSchema;

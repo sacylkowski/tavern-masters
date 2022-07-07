@@ -9,6 +9,10 @@ const campaignSchema = new Schema(
             default: Date.now,
             get: timestamp => dateFormat(timestamp)
         },
+        username: {
+            type: String,
+            required: true
+          },
         campaignName: {
             type: String,
             required: 'Your campaign requires a name!',
@@ -30,7 +34,7 @@ const campaignSchema = new Schema(
     }
 );
 
-thoughtSchema.virtual('eventCount').get(function(){
+campaignSchema.virtual('eventCount').get(function(){
     return this.events.length;
 });
 
