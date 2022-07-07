@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 // import Profile from './pages/Profile';
 import NoMatch from "./pages/NoMatch";
+import SingleCampaign from './pages/SingleCampaign';
 
 
 function App() {
@@ -21,6 +22,10 @@ function App() {
             element={<Home />}
           />
           <Route
+            path="/campaign/:id"
+            element={<SingleCampaign />}
+          />
+          <Route
             path="/login"
             element={<Login />}
           />
@@ -29,7 +34,9 @@ function App() {
             element={<Signup />}
           />
           {/* <Route
-            path="/profile"
+            path="/profile">
+            <Route path=":username" element={<Profile />} />
+    <Route path="" element={<Profile />} />
             element={<Profile />}
           /> */}
           <Route
