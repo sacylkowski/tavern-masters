@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -13,7 +14,7 @@ function App() {
   return (
     <Router>
       <div className="first">
-        <h1>Tavern Masters</h1>
+        <Header />
         <Routes>
         <Route
             path="/home"
