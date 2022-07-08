@@ -1,9 +1,8 @@
 import React from 'react';
 // import { Navigate, useParams } from 'react-router-dom';
 
-// import ThoughtForm from '../components/ThoughtForm';
-// import ThoughtList from '../components/ThoughtList';
-// import FriendList from '../components/FriendList';
+// import CampaignForm from '../components/CampaignForm';
+// import CampaignList from '../components/CampaignList';
 
 // import { useQuery, useMutation } from '@apollo/client';
 // import { QUERY_USER, QUERY_ME } from '../utils/queries';
