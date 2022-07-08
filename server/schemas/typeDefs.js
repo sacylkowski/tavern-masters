@@ -5,6 +5,8 @@ const typeDefs = gql`
         _id: ID
         username: String
         events: [Event]
+        eventCount: Int
+        campaignCount: Int
         campaigns: [Campaign]
     }
     
@@ -13,6 +15,7 @@ const typeDefs = gql`
         username: String
         campaignName: String
         campaignDescription: String
+        eventCount: Int
         events: [Event]
     }
 
@@ -28,10 +31,23 @@ const typeDefs = gql`
     }
 
     type Query {
+        me: User
         users: [User]
         user(username: String!): User
         campaigns(username: String): [Campaign]
         campaign(_id: ID!): Campaign
+    }
+
+    type Mutation {
+        login(username: String!, password: String!): Auth
+        addUser(username: String!, password: String!): Auth
+        addEvent(eventGiverName: String!, eventGiverOccupation: String, eventGiverDescription: String, eventName: String!, eventDescription: String!, eventReward: String): Event
+        addCampaign(campaignName: String!, campaignDescription: String!): Campaign
+    }
+
+    type Auth {
+        token: ID!
+        user: User
     }
 `
 ;
