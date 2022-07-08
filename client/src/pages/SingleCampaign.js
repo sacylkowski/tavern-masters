@@ -19,7 +19,7 @@ const SingleCampaign = props => {
     // } 
   return (
     <div>
-      <div className="">
+      {/* <div className="">
         <p className="">
           <span style={{ fontWeight: 700 }} className="">
             {campaign.username}
@@ -29,7 +29,7 @@ const SingleCampaign = props => {
         <div className="">
           <p>{campaign.description}</p>
         </div>
-      </div>
+      </div> */}
 {/* 
       {campaign.commentCount > 0 && (
         <CommentList comments={campaign.comments} />
