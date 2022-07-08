@@ -116,7 +116,7 @@ export const QUERY_EVENTS = gql`
 
 // get a single event
 export const QUERY_EVENT = gql`
-    query event($id: ID!) {
+    query oneEvent($id: ID!) {
         event(_id: $id) {
             _id
             createdAt
