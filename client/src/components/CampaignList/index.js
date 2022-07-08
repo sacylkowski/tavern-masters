@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const CampaignList = (
-    // { campaigns, title }
-) => {
-    //   if (!campaign.length) {
-    //     return <h3>No Campaigns Yet</h3>;
-    //   }
+const CampaignList = ({ campaigns, title }) => {
+      if (!campaign.length) {
+        return <h3>No Campaigns Yet</h3>;
+      }
 
     return (
         <div>
@@ -22,11 +20,12 @@ const CampaignList = (
                             >
                                 {campaign.username}
                             </Link>{" "}
-                            created on {campaign.createdAt}
+                            created their campaign on {campaign.createdAt}
                         </p>
                         <div className="">
                             <Link to={`/campaign/${campaign._id}`}>
-                                <p>{campaign.description}</p>
+                                <h3>{campaign.campaignName}</h3>
+                                <p>{campaign.campaignDescription}</p>
                                 {/* <p className="">
                         Comments: {campaign.commentCount} || Click to{' '}
                         {campaign.commentCount ? 'see' : 'start'} the discussion!
