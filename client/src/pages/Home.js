@@ -1,33 +1,39 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import CampaignList from "../components/CampaignList";
+import React from "react";
+// import CampaignList from '../components/CampaignList';
+// import CommentList from '../components/CommentList';
+
+import Auth from '../utils/auth';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
 
 const Home = () => {
+//   const { loading, data } = useQuery(QUERY_THOUGHTS);
+//   const { data: userData } = useQuery(QUERY_ME_BASIC);
+//   const thoughts = data?.thoughts || [];
 
-    return (
-        <main className="main">
-            <div className="">
-                <nav className="">
+//   const loggedIn = Auth.loggedIn();
 
-                    {/* <a href="#profile"
-                onClick={() => handlePageChange("Profile")}
-                className={currentPage === "Profile" ? "nav-link active" : "nav-link"}>
-                    Profile</a> */}
-                    <Link to="/profile">Profile</Link>
-                    {/* <a href="#profile"
-                onClick={() => handlePageChange("Profile")}
-                className={currentPage === "Profile" ? "nav-link active" : "nav-link"}>
-                    Profile</a> */}
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Signup</Link>
-
-                </nav>
-            </div>
-            <div>
-                <CampaignList />
-            </div>
-        </main>
-    );
+  return (
+    <main>
+      <div className="">
+        {/* {loggedIn && (
+          <div className="">
+            {/* <ThoughtForm /> 
+          </div>
+        )}
+        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <CampaignList
+              campaigns={campaign}
+              title="Some Feed for Thought(s)..."
+            />
+          )}
+        </div> */}
+      </div>
+    </main>
+  );
 };
 
 export default Home;
