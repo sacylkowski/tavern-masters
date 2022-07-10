@@ -62,7 +62,11 @@ export const ADD_EVENT = gql`
 // add comment
 
 // update user
+// export const UPDATE_USER = gql`
+//     mutation updateUser($id: ID!)
+// `
 
 // update campaign
+
 
 // update event

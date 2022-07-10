@@ -36,6 +36,8 @@ const typeDefs = gql`
         user(username: String!): User
         campaigns(username: String): [Campaign]
         campaign(_id: ID!): Campaign
+        events(username: String): [Event]
+        oneEvent(_id: ID!): Event
     }
 
     type Mutation {
