@@ -21,7 +21,11 @@ const CampaignForm = () => {
         }
     }
 
-    const randomize = (event) => {}
+    const Randomize = (event) => {
+        event.preventDefault();
+
+    }
+
     return (
         // OUTSIDE NEAGATIVE SPACE
         <section>
@@ -47,11 +51,11 @@ const CampaignForm = () => {
                     <div>
                         {/* Drop Down Menu Event #1 */}
                         <select name="Event List" onBlur={checkEventFilled} defaultValue={Episode}>
-                            <option value="Episode#1">Episode#1</option>
-                            <option value="Episode#2">Episode#2</option>
-                            <option value="Episode#3">Episode#3</option>
-                            <option value="Episode#4">Episode#4</option>
-                            <option value="Episode#5">Episode#5</option>
+                            <option value="Encounter#1">Encounter#1</option>
+                            <option value="Encounter#2">Encounter#2</option>
+                            <option value="Encounter#3">Encounter#3</option>
+                            <option value="Encounter#4">Encounter#4</option>
+                            <option value="Encounter#5">Encounter#5</option>
                         </select>
 
                         <button data-testid="button" type="random" onClick={Randomize}>Randomize</button>
