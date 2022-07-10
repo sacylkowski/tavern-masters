@@ -45,6 +45,7 @@ const typeDefs = gql`
         addUser(username: String!, password: String!): Auth
         addEvent(eventGiverName: String!, eventGiverOccupation: String, eventGiverDescription: String, eventName: String!, eventDescription: String!, eventReward: String): Event
         addCampaign(campaignName: String!, campaignDescription: String!): Campaign
+        updateCampaign(id: ID!): Campaign
     }
 
     type Auth {

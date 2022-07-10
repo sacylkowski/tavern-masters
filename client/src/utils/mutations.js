@@ -67,6 +67,19 @@ export const ADD_EVENT = gql`
 // `
 
 // update campaign
-
+export const UPDATE_CAMPAIGN = gql`
+    mutation updateCampaign($id: ID!, $campaignName: String!, campaignDescription: String!) {
+        updateCampaign(_id: $id, campaignName: $campaignName, campaignDescription: $campaignDescription) {
+            _id
+            campaignName
+            campaignDescription
+            createdAt
+            username
+            events {
+                _id
+            }
+        }
+    }
+`
 
 // update event

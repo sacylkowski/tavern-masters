@@ -107,6 +107,33 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in to make an event!');
+        },
+        // update campaign
+        updateCampaign: async (parent, args, context) => {
+            if (context.user && args.username === context.user.username) {
+                if (args.events) {
+                    const campaign = await Campaign.findOne({ _id: args.id });
+                    if (campaign.events.length < args.events.length) {
+                        for (let i = campaign.events.length; i < args.events.length; i++) {
+                            const updatedCampaign = await Campaign.findOneAndUpdate(
+                                { _id: args.id },
+                                { $push: args.events[i].id },
+                                { new: true }
+                            )
+                        }
+                        return updatedCampaign;
+                    }
+                }
+                const campaign = await Campaign.findOneAndUpdate(
+                    { _id: args.id },
+                    { $set: { ...args } },
+                    { new: true }
+                );
+
+                return campaign;
+            }
+
+            throw new AuthenticationError('You need to be logged in to update a campaign!');
         }
     }
 };
