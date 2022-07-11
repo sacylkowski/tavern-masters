@@ -1,7 +1,7 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const eventSchema = new Schema(
+const encounterSchema = new Schema(
     {
         createdAt: {
             type: Date,
@@ -12,37 +12,37 @@ const eventSchema = new Schema(
             type: String,
             required: true
           },
-        eventGiverName: {
+        encounterGiverName: {
             type: String,
-            required: 'There must be an event giver!',
+            required: 'There must be an encounter giver!',
             minlength: 1,
             maxlength: 20
         },
-        eventGiverOccupation: {
+        encounterGiverOccupation: {
             type: String,
             required: false,
             minlength: 1,
             maxlength: 20
         },
-        eventGiverDescription: {
+        encounterGiverDescription: {
             type: String,
             required: false,
             minlength: 1,
             maxlength: 280
         },
-        eventName: {
+        encounterName: {
             type: String,
-            required: 'Your event must have a name!',
+            required: 'Your encounter must have a name!',
             minlength: 1, 
             maxlength: 50
         },
-        eventDescription: {
+        encounterDescription: {
             type: String,
-            required: 'Your event must have a description!',
+            required: 'Your encounter must have a description!',
             minlength: 1,
             maxlength: 560
         },
-        eventReward: {
+        encounterReward: {
             type: String,
             minlength: 1,
             maxlength: 280
@@ -55,4 +55,6 @@ const eventSchema = new Schema(
     }
 );
 
-module.exports = eventSchema;
+const Encounter = model('Encounter', encounterSchema);
+
+module.exports = Encounter;

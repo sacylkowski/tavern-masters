@@ -14,10 +14,10 @@ const userSchema = new Schema(
             required: true,
             minlength: 5
         },
-        events: [
+        encounters: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Event'
+                ref: 'Encounter'
             }
         ],
         campaigns: [
@@ -49,9 +49,9 @@ userSchema.methods.isCorrectPassword = async function(password) {
     return bcrypt.compare(password, this.password);
 };
 
-// return numbers of events created
-userSchema.virtual('eventCount').get(function(){
-    return this.events.length;
+// return numbers of encounters created
+userSchema.virtual('encounterCount').get(function(){
+    return this.encounters.length;
 });
 
 // return numbers of campaigns created

@@ -35,24 +35,24 @@ export const ADD_CAMPAIGN = gql`
             campaignDescription
             createdAt
             username
-            events {
+            encounters {
                 _id
             }
         }
     }
 `;
 
-// add event
-export const ADD_EVENT = gql`
-    mutation addEvent($eventName: String!, $eventDescription: String!, $eventGiverName: String!, $eventGiverOccupation: String, $eventGiverDescription: String, $eventReward: String) {
-        addEvent(eventName: $eventName, eventDescription: $eventDescription, eventGiverName: $eventGiverName, eventGiverOccupation: $eventGiverOccupation, eventGiverDescription: $eventGiverDescription, eventReward: $eventReward) {
+// add encounter
+export const ADD_encounter = gql`
+    mutation addencounter($encounterName: String!, $encounterDescription: String!, $encounterGiverName: String!, $encounterGiverOccupation: String, $encounterGiverDescription: String, $encounterReward: String) {
+        addencounter(encounterName: $encounterName, encounterDescription: $encounterDescription, encounterGiverName: $encounterGiverName, encounterGiverOccupation: $encounterGiverOccupation, encounterGiverDescription: $encounterGiverDescription, encounterReward: $encounterReward) {
             _id
-            eventName
-            eventDescription
-            eventGiverName
-            eventGiverOccupation
-            eventGiverDescription
-            eventReward
+            encounterName
+            encounterDescription
+            encounterGiverName
+            encounterGiverOccupation
+            encounterGiverDescription
+            encounterReward
             createdAt
             username
         }
@@ -75,11 +75,11 @@ export const UPDATE_CAMPAIGN = gql`
             campaignDescription
             createdAt
             username
-            events {
+            encounters {
                 _id
             }
         }
     }
 `
 
-// update event
+// update encounter
