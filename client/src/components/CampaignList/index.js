@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const CampaignList = ({ campaigns, title }) => {
-      if (!campaign.length) {
+      if (!campaigns.length) {
         return <h3>No Campaigns Yet</h3>;
       }
 
