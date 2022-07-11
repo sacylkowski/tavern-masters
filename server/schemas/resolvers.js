@@ -95,7 +95,7 @@ const resolvers = {
         // add encounter
         addEncounter: async (parent, args, context) => {
             if (context.user) {
-                const encounter = await encounter.create({ ...args, username: context.user.username });
+                const encounter = await Encounter.create({ ...args, username: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
@@ -127,6 +127,15 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in to update a campaign!');
+        },
+        addComment: async (parent, { campaignId, commentBody }, context) => {
+            if(context.user){
+                const updateCampaign = await Campaign.findOneAndUpdate(
+                    {_id: campaignId},
+                    {$push: { comments: { commentBody, username: context.user.username } } },
+                    { true: true, runValidators: true }
+                );
+            }
         }
     }
 };

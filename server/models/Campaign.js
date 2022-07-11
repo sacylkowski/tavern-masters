@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const encounterSchema = require('./Encounter');
+const commentSchema = require('./Comment');
 const dateFormat = require('../utils/dateFormat');
 
 const campaignSchema = new Schema(
@@ -30,7 +31,8 @@ const campaignSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Encounter'
             }
-        ]
+        ],
+        comments: [commentSchema]
     },
     {
         toJSON: {
@@ -42,6 +44,10 @@ const campaignSchema = new Schema(
 campaignSchema.virtual('encounterCount').get(function(){
     return this.encounters.length;
 });
+
+campaignSchema.virtual('commentCount').get(function(){
+    return this.comments.length;
+})
 
 const Campaign = model('Campaign', campaignSchema);
 
