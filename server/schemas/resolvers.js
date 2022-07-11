@@ -50,7 +50,7 @@ const resolvers = {
         },
 
         // get single encounter
-        oneencounter: async (parent, { _id }) => {
+        encounter: async (parent, { _id }) => {
             return Encounter.findOne({ _id });
         },
     },
