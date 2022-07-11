@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const eventSchema = require('./Event');
+const encounterSchema = require('./Encounter');
 const dateFormat = require('../utils/dateFormat');
 
 const campaignSchema = new Schema(
@@ -25,7 +25,12 @@ const campaignSchema = new Schema(
             minlength: 1, 
             maxlength: 560
         },
-        events: [eventSchema]
+        encounters: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Encounter'
+            }
+        ]
     },
     {
         toJSON: {
@@ -34,8 +39,8 @@ const campaignSchema = new Schema(
     }
 );
 
-campaignSchema.virtual('eventCount').get(function(){
-    return this.events.length;
+campaignSchema.virtual('encounterCount').get(function(){
+    return this.encounters.length;
 });
 
 const Campaign = model('Campaign', campaignSchema);

@@ -11,7 +11,7 @@ export const QUERY_CAMPAIGNS = gql`
             username
             campaignName
             campaignDescription
-            eventCount
+            encounterCount
         }
     }
 `;
@@ -25,16 +25,16 @@ export const QUERY_CAMPAIGN = gql`
             username
             campaignName
             campaignDescription
-            eventCount
-            events {
+            encounterCount
+            encounters {
                 _id
                 username
-                eventGiverName
-                eventGiverOccupation
-                eventGiverDescription
-                eventName
-                eventDescription
-                eventReward
+                encounterGiverName
+                encounterGiverOccupation
+                encounterGiverDescription
+                encounterName
+                encounterDescription
+                encounterReward
             }
         }
     }
@@ -47,17 +47,17 @@ export const QUERY_USER = gql`
       _id
       username
       campaignCount
-      eventCount
+      encounterCount
       campaigns {
         _id
         campaignName
         campaignDescription
-        eventCount
+        encounterCount
       }
-      events {
+      encounters {
         _id
-        eventName
-        eventDescription
+        encounterName
+        encounterDescription
       }
     }
   }
@@ -70,17 +70,17 @@ export const QUERY_ME = gql`
         _id
         username
         campaignCount
-        eventCount
+        encounterCount
         campaigns {
           _id
           campaignName
           campaignDescription
-          eventCount
+          encounterCount
         }
-        events {
+        encounters {
           _id
-          eventName
-          eventDescription
+          encounterName
+          encounterDescription
         }
     }
 }
@@ -101,32 +101,32 @@ export const QUERY_ME_BASIC = gql`
     }
 `
 
-// get all events
-export const QUERY_EVENTS = gql`
-    query events($username: String) {
-        events(username: $username) {
+// get all encounters
+export const QUERY_ENCOUNTERS = gql`
+    query encounters($username: String) {
+        encounters(username: $username) {
             _id
-            eventName
-            eventDescription
+            encounterName
+            encounterDescription
             username
             createdAt
         }
     }
 `
 
-// get a single event
-export const QUERY_EVENT = gql`
-    query oneEvent($id: ID!) {
-        event(_id: $id) {
+// get a single encounter
+export const QUERY_ENCOUTER = gql`
+    query encounter($id: ID!) {
+        encounter(_id: $id) {
             _id
             createdAt
             username
-            eventGiverName
-            eventGiverOccupation
-            eventGiverDescription
-            eventName
-            eventDescription
-            eventReward
+            encounterGiverName
+            encounterGiverOccupation
+            encounterGiverDescription
+            encounterName
+            encounterDescription
+            encounterReward
         }
     }
 `

@@ -35,24 +35,24 @@ export const ADD_CAMPAIGN = gql`
             campaignDescription
             createdAt
             username
-            events {
+            encounters {
                 _id
             }
         }
     }
 `;
 
-// add event
-export const ADD_EVENT = gql`
-    mutation addEvent($eventName: String!, $eventDescription: String!, $eventGiverName: String!, $eventGiverOccupation: String, $eventGiverDescription: String, $eventReward: String) {
-        addEvent(eventName: $eventName, eventDescription: $eventDescription, eventGiverName: $eventGiverName, eventGiverOccupation: $eventGiverOccupation, eventGiverDescription: $eventGiverDescription, eventReward: $eventReward) {
+// add encounter
+export const ADD_encounter = gql`
+    mutation addencounter($encounterName: String!, $encounterDescription: String!, $encounterGiverName: String!, $encounterGiverOccupation: String, $encounterGiverDescription: String, $encounterReward: String) {
+        addencounter(encounterName: $encounterName, encounterDescription: $encounterDescription, encounterGiverName: $encounterGiverName, encounterGiverOccupation: $encounterGiverOccupation, encounterGiverDescription: $encounterGiverDescription, encounterReward: $encounterReward) {
             _id
-            eventName
-            eventDescription
-            eventGiverName
-            eventGiverOccupation
-            eventGiverDescription
-            eventReward
+            encounterName
+            encounterDescription
+            encounterGiverName
+            encounterGiverOccupation
+            encounterGiverDescription
+            encounterReward
             createdAt
             username
         }
@@ -62,7 +62,24 @@ export const ADD_EVENT = gql`
 // add comment
 
 // update user
+// export const UPDATE_USER = gql`
+//     mutation updateUser($id: ID!)
+// `
 
 // update campaign
+export const UPDATE_CAMPAIGN = gql`
+    mutation updateCampaign($id: ID!, $campaignName: String!, campaignDescription: String!) {
+        updateCampaign(_id: $id, campaignName: $campaignName, campaignDescription: $campaignDescription) {
+            _id
+            campaignName
+            campaignDescription
+            createdAt
+            username
+            encounters {
+                _id
+            }
+        }
+    }
+`
 
-// update event
+// update encounter

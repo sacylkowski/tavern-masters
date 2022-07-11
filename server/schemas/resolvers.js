@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Campaign, Event, User } = require('../models');
+const { Campaign, Encounter, User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -9,7 +9,7 @@ const resolvers = {
             return User.find()
                 .select('-__v -password')
                 .populate('campaigns')
-                .populate('events');
+                .populate('encounters');
         },
         // get all campaigns
         campaigns: async (parent, { username }) => {
@@ -27,7 +27,7 @@ const resolvers = {
             return User.findOne({ username })
                 .select('-__v -password')
                 .populate('campaigns')
-                .populate('events')
+                .populate('encounters')
         },
 
         // get logged in user
@@ -36,22 +36,22 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('campaigns')
-                    .populate('events')
+                    .populate('encounters')
 
                 return userData;
             }
             throw new AuthenticationError('Not logged in!');
         },
 
-        // get all events
-        events: async (parent, {username}) => {
+        // get all encounters
+        encounters: async (parent, {username}) => {
             const params = username ? { username } : {};
-            return Event.find(params).sort({createdAt: -1});
+            return Encounter.find(params).sort({createdAt: -1});
         },
 
-        // get single event
-        oneEvent: async (parent, { _id }) => {
-            return Event.findOne({ _id });
+        // get single encounter
+        oneencounter: async (parent, { _id }) => {
+            return Encounter.findOne({ _id });
         },
     },
     Mutation: {
@@ -92,21 +92,41 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in to make a campaign!');
         },
-        // add event
-        addEvent: async (parent, args, context) => {
+        // add encounter
+        addEncounter: async (parent, args, context) => {
             if (context.user) {
-                const event = await Event.create({ ...args, username: context.user.username });
+                const encounter = await encounter.create({ ...args, username: context.user.username });
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $push: { events: event._id }},
+                    { $push: { encounters: encounter._id }},
                     { new: true }
                 );
 
-                return event;
+                return encounter;
             }
 
-            throw new AuthenticationError('You need to be logged in to make an event!');
+            throw new AuthenticationError('You need to be logged in to make an encounter!');
+        },
+        // update campaign
+        updateCampaign: async (parent, { ...args }, context) => {
+            if (context.user && username === context.user.username) {
+                if (encounters) {
+                    let encounterIds = [];
+                    for (let i = 0; i < encounters.length; i++) {
+                        encounterIds.push(encounters[i]._id);
+                    }
+                }
+                const campaign = await Campaign.findOneAndUpdate(
+                    { _id: id },
+                    { $set: { campaignName: campaignName, campaignDescription: campaignDescription, encounters: encounterIds } },
+                    { new: true }
+                );
+
+                return campaign;
+            }
+
+            throw new AuthenticationError('You need to be logged in to update a campaign!');
         }
     }
 };

@@ -1,5 +1,5 @@
 const Campaign = require('./Campaign');
-const Event = require('./Event');
+const Encounter = require('./Encounter');
 const User = require('./User');
 
-module.exports = { Campaign, Event, User };
+module.exports = { Campaign, Encounter, User };
