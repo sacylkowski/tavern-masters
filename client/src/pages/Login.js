@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { useMutation } from '@apollo/client';
 // import { LOGIN_USER } from '../utils/mutations';
 
+import "./login.css";
 // import Auth from '../utils/auth';
 
 
@@ -42,11 +43,11 @@ const Login = (props) => {
 
   return (
     <main className="main">
-      <div className="">
+      <div className="loginstyle">
         <div className="card">
-          <h4 className="card-header">Login</h4>
+          <h4 className="card-header title">Login</h4>
           <div className="card-body">
-            <form 
+            <form className="inputs"
             //  onSubmit={handleFormSubmit}
             >
               <input

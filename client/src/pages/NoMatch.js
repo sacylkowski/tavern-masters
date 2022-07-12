@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./nomatch.css";
+
 const NoMatch = () => {
   return (
     <div>

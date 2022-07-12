@@ -1,6 +1,8 @@
 import React from "react";
 // import { useParams } from "react-router-dom";
 
+import "./singlecampaign.css";
+
 // import CommentList from "../components/CommentList";
 // add comment form if time permits
 

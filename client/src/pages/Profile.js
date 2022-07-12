@@ -1,6 +1,8 @@
 import React from 'react';
 // import { Navigate, useParams } from "react-router-dom";
 
+import "./profile.css";
+
 // import CampaignForm from "../components/CampaignForm";
 // import CampaignList from "../components/CampaignList";
 

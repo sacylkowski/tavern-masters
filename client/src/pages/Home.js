@@ -3,6 +3,8 @@ import React from 'react';
 // import CommentList from "../components/CommentList";
 // import CampaignForm from "../components/CampaignForm";
 
+import "./home.css";
+
 // import { useQuery } from "@apollo/client";
 // import { QUERY_CAMPAIGNS, QUERY_ME_BASIC } from "../utils/queries";
 

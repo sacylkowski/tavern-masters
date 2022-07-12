@@ -1,0 +1,22 @@
+.loginstyle {
+    border: 3px solid white;
+    background: rgba(29, 32, 29, 0.3);
+    
+}
+
+.title {
+    text-align: center;
+    color: white;
+}
+
+.inputs {
+    text-align: center;
+}
+
+input {
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+}
