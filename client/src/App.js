@@ -18,11 +18,12 @@ import SingleCampaign from "./pages/SingleCampaign";
   const errorLink = onError(({ graphqlErrors, networkError }) => {
     if (graphqlErrors) {
       graphqlErrors.map(({ message, location, path }) => {
-        alert(`Graphql error ${message}`);
+        return alert(`Graphql error ${message}`);
       });
     }
   });
 
+  // set up link to backend
   const link = from([
     errorLink,
     new HttpLink({ uri: "http://localhost:3001/graphql" }),
