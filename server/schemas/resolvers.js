@@ -14,12 +14,14 @@ const resolvers = {
         // get all campaigns
         campaigns: async (parent, { username }) => {
             const params = username ? { username } : {};
-            return Campaign.find(params).sort({createdAt: -1});
+            return Campaign.find(params).sort({createdAt: -1})
+                .populate('encounters');
         },
 
         // get single campaign
         campaign: async (parent, { _id }) => {
-            return Campaign.findOne({ _id });
+            return Campaign.findOne({ _id })
+                .populate('encounters');
         },
         
         // get single user
@@ -109,18 +111,12 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in to make an encounter!');
         },
         // update campaign
-        updateCampaign: async (parent, { ...args }, context) => {
-            if (context.user && username === context.user.username) {
-                if (encounters) {
-                    let encounterIds = [];
-                    for (let i = 0; i < encounters.length; i++) {
-                        encounterIds.push(encounters[i]._id);
-                    }
-                }
+        updateCampaign: async (parent, args, context) => {
+            if (context.user) {
                 const campaign = await Campaign.findOneAndUpdate(
-                    { _id: id },
-                    { $set: { campaignName: campaignName, campaignDescription: campaignDescription, encounters: encounterIds } },
-                    { new: true }
+                    { _id: args.id },
+                    { $set: { campaignName: args.campaignName, campaignDescription: args.campaignDescription } },
+                    { new: true, runValidators: true }
                 );
 
                 return campaign;
@@ -128,6 +124,19 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in to update a campaign!');
         },
+
+        // add encounter to campaign
+        addEncounterCampaign: async(parent, args, context) => {
+            if(context.user){
+                const campaign = await Campaign.findOneAndUpdate(
+                    {_id: args.campaignId},
+                    {$push: {encounters: args.encounterId } },
+                    {new: true, runValidators: true}
+                );
+                return campaign;
+            }
+        },
+
         addComment: async (parent, { campaignId, commentBody }, context) => {
             if(context.user){
                 const updateCampaign = await Campaign.findOneAndUpdate(
@@ -135,6 +144,7 @@ const resolvers = {
                     {$push: { comments: { commentBody, username: context.user.username } } },
                     { true: true, runValidators: true }
                 );
+                return updateCampaign;
             }
         }
     }

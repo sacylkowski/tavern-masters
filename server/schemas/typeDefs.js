@@ -54,7 +54,8 @@ const typeDefs = gql`
         addUser(username: String!, password: String!): Auth
         addEncounter(encounterGiverName: String!, encounterGiverOccupation: String, encounterGiverDescription: String, encounterName: String!, encounterDescription: String!, encounterReward: String): encounter
         addCampaign(campaignName: String!, campaignDescription: String!): Campaign
-        updateCampaign(id: ID!): Campaign
+        updateCampaign(id: ID!, campaignName: String!, campaignDescription: String!): Campaign
+        addEncounterCampaign(campaignId: ID!, encounterId: ID!): Campaign
         addComment(campaignId: ID!, commentBody: String!): Campaign
     }
 
