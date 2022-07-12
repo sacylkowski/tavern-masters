@@ -24,7 +24,7 @@ const CampaignForm = () => {
             const { campaigns } = cache.readQuery({ query: QUERY_CAMPAIGNS });
             cache.writeQuery({
                 query: QUERY_CAMPAIGNS,
-                data: { campaigns: [addCampaign, ... campaigns]}
+                data: { campaigns: [addCampaign, ...campaigns]}
             })
         }
     })
