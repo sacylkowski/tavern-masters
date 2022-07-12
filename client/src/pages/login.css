@@ -1,7 +1,9 @@
 .loginstyle {
-    border: 3px solid white;
-    background: rgba(29, 32, 29, 0.3);
-    
+    border: 2px solid white;
+    border-radius: 7px;
+    background: rgba(251, 238, 196, 0.472);
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 .title {
@@ -19,4 +21,10 @@ input {
 
 button {
     margin: 5px;
+    background-color: blanchedalmond;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: greenyellow;
 }

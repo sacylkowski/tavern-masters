@@ -1,0 +1,30 @@
+.signupbox {
+    border: 2px solid white;
+    border-radius: 7px;
+    background: rgba(251, 238, 196, 0.472);
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+h4 {
+    text-align: center;
+    color: white;
+}
+
+.inputs {
+    text-align: center;
+}
+
+input {
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+    background-color: blanchedalmond;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: greenyellow;
+}

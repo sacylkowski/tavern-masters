@@ -42,10 +42,10 @@ const Signup = () => {
 
   return (
     <main className="main">
-      <div className="">
+      <div className="signupbox">
         <div className="">
           <h4 className="">Sign Up</h4>
-          <div className="">
+          <div className="inputs">
             <form 
             // onSubmit={handleFormSubmit}
             >
