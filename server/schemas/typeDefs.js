@@ -16,7 +16,9 @@ const typeDefs = gql`
         campaignName: String
         campaignDescription: String
         encounterCount: Int
+        commentCount: Int
         encounters: [encounter]
+        comments: [Comment]
     }
 
     type encounter {
@@ -28,6 +30,13 @@ const typeDefs = gql`
         encounterName: String
         encounterDescription: String
         encounterReward: String
+    }
+
+    type Comment {
+        _id: ID
+        commentBody: String
+        createdAt: String
+        username: String
     }
 
     type Query {
@@ -46,6 +55,7 @@ const typeDefs = gql`
         addEncounter(encounterGiverName: String!, encounterGiverOccupation: String, encounterGiverDescription: String, encounterName: String!, encounterDescription: String!, encounterReward: String): encounter
         addCampaign(campaignName: String!, campaignDescription: String!): Campaign
         updateCampaign(id: ID!): Campaign
+        addComment(campaignId: ID!, commentBody: String!): Campaign
     }
 
     type Auth {
