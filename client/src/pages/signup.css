@@ -1,9 +1,10 @@
 .signupbox {
     border: 2px solid white;
     border-radius: 7px;
-    background: rgba(251, 238, 196, 0.472);
-    margin-left: 25px;
-    margin-right: 25px;
+    background: rgba(194, 168, 149, 0.9);
+    width: 45%;
+    min-height: 250px;
+    margin: auto;
 }
 
 h4 {
@@ -17,11 +18,14 @@ h4 {
 
 input {
     margin: 5px;
+    min-height: 30px;
 }
 
 button {
-    margin: 5px;
+    margin: 15px;
     background-color: blanchedalmond;
+    box-shadow: 2px 2px 2px 2px;
+    min-height: 30px;
 }
 
 button:hover {
