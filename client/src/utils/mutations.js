@@ -28,7 +28,7 @@ export const ADD_USER = gql`
 
 // add campaign
 export const ADD_CAMPAIGN = gql`
-    mutation addCampaign($campaignName: String!, campaignDescription: String!) {
+    mutation addCampaign($campaignName: String!, $campaignDescription: String!) {
         addCampaign(campaignName: $campaignName, campaignDescription: $campaignDescription) {
             _id
             campaignName
@@ -68,7 +68,7 @@ export const ADD_encounter = gql`
 
 // update campaign
 export const UPDATE_CAMPAIGN = gql`
-    mutation updateCampaign($id: ID!, $campaignName: String!, campaignDescription: String!) {
+    mutation updateCampaign($id: ID!, $campaignName: String!, $campaignDescription: String!) {
         updateCampaign(_id: $id, campaignName: $campaignName, campaignDescription: $campaignDescription) {
             _id
             campaignName
