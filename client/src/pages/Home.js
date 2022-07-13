@@ -1,30 +1,28 @@
 import React from 'react';
-// import CampaignList from "../component/CampaignList";
+import CampaignList from "../component/CampaignList";
 // import CommentList from "../components/CommentList";
 // import CampaignForm from "../components/CampaignForm";
 
 import "./home.css";
 
-// import { useQuery } from "@apollo/client";
-// import { QUERY_CAMPAIGNS, QUERY_ME_BASIC } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { QUERY_CAMPAIGNS } from "../utils/queries";
 
 
 const Home = () => {
-    // const { loading, data } = useQuery(QUERY_CAMPAIGNS);
-    // const { data: userData } = useQuery(QUERY_ME_BASIC);
-    // const campaigns = data?.campaigns || [];
+    const { loading, data } = useQuery(QUERY_CAMPAIGNS);
+    const campaigns = data?.campaigns || [];
   
   return (
     <main>
         <h2>Title</h2>
         <p>description</p>
-    {/* <div className="">
+    <div className="">
           <CampaignList
             campaigns={campaigns} 
             title="Current Campaigns"
           />
-        )}
-      </div>*/}
+      </div>
   </main>
   )
 }

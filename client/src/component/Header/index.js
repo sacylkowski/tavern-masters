@@ -1,34 +1,38 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-// import Auth from "../../utils/auth";
+import Auth from "../../utils/auth";
 
 const Header = () => {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
-    <header> 
-        <div>
-        
+    <header>
+      <div>
+
         <Link to="/home">
           <h1>Tavern Masters</h1>
-</Link>
+        </Link>
 
         <nav className="">
-          {/* {Auth.loggedIn() ? (
-            <> */}
+        <Link to="/home">View Campaigns</Link>
+          {Auth.loggedIn() ? (
+            <>
               <Link to="/profile">Profile</Link>
-              {/* <a href="/" onClick={logout}>
+              <a href="/" onClick={logout}>
                 Logout
               </a>
             </>
           ) : (
-            <> */}
+            <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
-              <Link to="/home">View Campaigns</Link>
-            {/* </>
-          )} */}
+            </>
+          )}
         </nav>
-        </div>
-       
+      </div>
+
     </header>
   )
 }
