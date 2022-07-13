@@ -1,9 +1,10 @@
 .loginstyle {
     border: 2px solid white;
     border-radius: 7px;
-    background: rgba(251, 238, 196, 0.472);
-    margin-left: 25px;
-    margin-right: 25px;
+    background: rgba(194, 168, 149, 0.9);
+    width: 45%;
+    min-height: 250px;
+    margin: auto;
 }
 
 .title {
