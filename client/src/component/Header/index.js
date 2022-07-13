@@ -28,15 +28,15 @@ const Header = () => {
                 Logout
               </a>
               {/* modal will show when user is logged in */}
+              <div className="">
+                <button onClick={() => setShow(true)}>Create Campaign</button>
+                <Modal onClose={() => setShow(false)} show={show} />
+              </div>
             </>
           ) : (
             <>
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
-              <div className="">
-                <button onClick={() => setShow(true)}>Create Campaign</button>
-                <Modal onClose={() => setShow(false)} show={show} />
-              </div>
             </>
           )}
         </nav>
