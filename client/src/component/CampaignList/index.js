@@ -8,7 +8,9 @@ const CampaignList = ({ campaigns, CampaignName }) => {
 
     return(
         <div>
+            {/* the campaign name, the title */}
             <h3>{CampaignName}</h3>
+            {/* then it will map through the campaigns and show the description and who created it */}
             {campaigns && campaigns.map(campaign => (
                 <div>
                     <p className="card-Content">{campaigns.campaignDescription}</p>
