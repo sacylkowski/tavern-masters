@@ -9,7 +9,7 @@ const CampaignList = ({ campaigns, CampaignName }) => {
     return(
         <div>
             <h3>{CampaignName}</h3>
-            {campaigns && campaigns.map(thought => (
+            {campaigns && campaigns.map(campaign => (
                 <div>
                     <p className="card-Content">{campaigns.campaignDescription}</p>
                     <p className="card-header">
@@ -24,4 +24,4 @@ const CampaignList = ({ campaigns, CampaignName }) => {
     )
 };
 
-export default CampaignList
+export default CampaignList;
