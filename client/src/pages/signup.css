@@ -1,3 +1,12 @@
+body {
+    background: url(../img/main-page.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
 .signupbox {
     border: 2px solid white;
     border-radius: 7px;
@@ -5,6 +14,9 @@
     width: 45%;
     min-height: 250px;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h4 {

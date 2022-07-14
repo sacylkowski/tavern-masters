@@ -1,19 +1,11 @@
-body, html {
-    height: 100%;
-  }
-  
-  .bg {
-    /* The image used */
-    background-image: "./img/main-page.jpg";
-  
-    /* Full height */
-    height: 100%;
-  
-    /* Center and scale the image nicely */
-    background-position: center;
+body {
+    background: url(../img/main-page.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-  }
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
 
 .loginstyle {
     border: 2px solid white;
@@ -22,6 +14,9 @@ body, html {
     width: 45%;
     min-height: 250px;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {

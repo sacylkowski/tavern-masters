@@ -1,3 +1,11 @@
+body {
+    background: url(../img/Tavern.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
 
 .profile {
     border: 2px solid white;
