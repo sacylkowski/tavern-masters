@@ -1,0 +1,15 @@
+h3 {
+    color: white;
+    font-size: 40px;
+    text-shadow: 2px 2px #000000;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+    text-shadow: 2px 2px #000000;
+}
+
+.button {
+    font-size: 20px;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./campaignform.css";
 
 import { useMutation } from '@apollo/client'
 import { ADD_CAMPAIGN } from '../../utils/mutations'
@@ -59,31 +60,32 @@ const CampaignForm = () => {
     };
 
     return (
-        <div>
+        <div className="campaign-form">
             
 
             <form 
                 onSubmit={handleFormSubmit}>
-
+                    <h3>Campaign name:</h3>
                     <textarea
-                        placeholder="Campaign Name ..."
+                        placeholder="..."
                         value={CampaignName}
                         onChange={handleName}
                     ></textarea>
 
+        
+                    <h3>Campaign description:</h3>
                     <p
                         className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
                             Character Count: {characterCount}/400
                             {error && <span> Something went wrong ... </span>}
                     </p>
-
                     <textarea
-                        placeholder="Campaign Description ..."
+                        placeholder="..."
                         value={CampaignDescription}
                         onChange={handleDescription}
-                    ></textarea>
+                    ></textarea> <br />
                     
-                    <button tpye="submit">
+                    <button type="submit" className="button">
                         Submit
                     </button>
             </form>
