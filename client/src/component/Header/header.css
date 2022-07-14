@@ -16,6 +16,16 @@ h1:hover{
     cursor: default;
 }
 
+/* unvisited link */
+.hometitle:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.hometitle:visited {
+    text-decoration: none;
+}
+
 .nav {
     text-decoration: none;
     font-size: 30px;

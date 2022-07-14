@@ -26,15 +26,15 @@ const SingleCampaign = (props) => {
     } 
   return (
     <div>
-      <div className="">
-        <p className="">
+      <div className="cALL">
+        <p className="ctitle">
             {/* user's campaigns */}
           <span style={{ fontWeight: 700 }} className="">
             {campaign.username}
           </span>{" "}
           created their campaign on {campaign.createdAt}
         </p>
-        <div className="">
+        <div className="cdescription">
             {/* Campaign Description */}
           <p>{campaign.campaignDescription}</p>
         </div>
