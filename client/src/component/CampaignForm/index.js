@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client'
 import { ADD_CAMPAIGN } from '../../utils/mutations'
-import {QUERY_CAMPAIGNS, QUERY_ME } from '../../utils/queries'
+import { QUERY_CAMPAIGNS, QUERY_ME} from '../../utils/queries'
 
 const CampaignForm = () => {
     const [CampaignName, setName] = useState('')
@@ -30,8 +30,10 @@ const CampaignForm = () => {
     })
 
     const handleName = (event) => {
-        if (event.target.value.lenght >= 8)
-            setName(event.target.value)        
+        if (event.target.value.lenght <= 25) {
+            setName(event.target.value) 
+        }
+                   
     }
 
     const handleDescription = (event) => {
@@ -46,9 +48,9 @@ const CampaignForm = () => {
 
         try {
             await addCampaign({
-                variables: {CampaignDescription}
+                variables: {CampaignName,CampaignDescription}
             });
-
+            setName('')
             setDescription('');
             setCharacterCount(0);
         }   catch (event) {
@@ -58,8 +60,6 @@ const CampaignForm = () => {
 
     return (
         <div>
-            
-
             <form 
                 onSubmit={handleFormSubmit}>
 
@@ -81,6 +81,12 @@ const CampaignForm = () => {
                         onChange={handleDescription}
                     ></textarea>
                     
+                    <select
+                        className="Select-Encounter"
+                        name="Selector#1"
+                        options="Encounter #1"
+                    ></select>
+
                     <button tpye="submit">
                         Submit
                     </button>
