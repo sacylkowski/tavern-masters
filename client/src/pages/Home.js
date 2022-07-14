@@ -1,7 +1,6 @@
 import React from 'react';
 import CampaignList from "../component/CampaignList";
 // import CommentList from "../components/CommentList";
-// import CampaignForm from "../components/CampaignForm";
 
 import "./home.css";
 

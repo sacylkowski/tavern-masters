@@ -30,8 +30,8 @@ const CampaignForm = () => {
     })
 
     const handleName = (event) => {
-        if (event.target.value.lenght >= 8)
-            setName(event.target.value)        
+        if (event.target.value.length >= 8)
+            {setName(event.target.value)}       
     }
 
     const handleDescription = (event) => {

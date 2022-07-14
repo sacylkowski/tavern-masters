@@ -3,7 +3,6 @@ import { Navigate, useParams } from "react-router-dom";
 
 import "./profile.css";
 
-// import CampaignForm from "../components/CampaignForm";
 // import CampaignList from "../components/CampaignList";
 
 import { useQuery } from '@apollo/client';
@@ -49,7 +48,6 @@ const Profile = (props) => {
             {/* <CampaignList campaigns={user.campaigns} title={`${user.username}'s campaigns...`} /> */}
           </div>
         </div>
-        {/* <div className="mb-3">{!userParam && <CampaignForm />}</div> */}
       </div>
     );
   };

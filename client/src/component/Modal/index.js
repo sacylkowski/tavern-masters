@@ -1,4 +1,5 @@
 import React from "react";
+import CampaignForm from "../CampaignForm";
 import "./modal.css";
 
 const Modal = (props) => {
@@ -8,7 +9,9 @@ const Modal = (props) => {
     return (
         <div className="modal">
             <h4 className="modal-title">Campaign creation:</h4>
-            <div className="campaign-form">This is where the campaign form goes</div>
+            <div className="campaign-form">
+                <CampaignForm />
+            </div>
             <div className="modal-footer">
                 <button onClick={props.onClose} className="button">Finish</button>
             </div>

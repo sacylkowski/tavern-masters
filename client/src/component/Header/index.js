@@ -13,7 +13,7 @@ const Header = () => {
   };
   return (
     <header>
-      <div>
+      <div className="">
 
         <Link to="/home">
           <h1>Tavern Masters</h1>
