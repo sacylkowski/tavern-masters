@@ -9,7 +9,7 @@ import { QUERY_CAMPAIGNS } from "../utils/queries";
 
 
 const Home = () => {
-    const { loading, data } = useQuery(QUERY_CAMPAIGNS);
+    const { data } = useQuery(QUERY_CAMPAIGNS);
     const campaigns = data?.campaigns || [];
   
   return (
