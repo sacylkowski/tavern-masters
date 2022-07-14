@@ -1,3 +1,4 @@
+
 .loginstyle {
     border: 2px solid white;
     border-radius: 7px;
@@ -10,6 +11,7 @@
 .title {
     text-align: center;
     color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .inputs {
