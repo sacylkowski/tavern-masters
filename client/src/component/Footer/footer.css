@@ -29,3 +29,17 @@
 .name:link {
     color: white;
 }
+
+/*footer tab*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .footerwords {
+        font-size: 25px; 
+        }
+    }
+    
+    /* Mobile :320px. */
+    @media (max-width: 767px) {
+    .footerwords {
+        font-size: 15px; 
+        }
+    }
