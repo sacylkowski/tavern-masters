@@ -4,7 +4,7 @@
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: #333333;
+    background: rgba(51, 51, 51, .85)
 }
 
 .name {
@@ -28,6 +28,7 @@
 
 .site {
     font-size: 25px;
+    margin-left: 20px;
 }
 /* selected link */
 .site:link {
@@ -41,7 +42,7 @@
 
 /* visited link */
 .site:visited {
-    text-decoration: brown;
+    text-decoration: white;
 }
 
 /* mouse over link */
