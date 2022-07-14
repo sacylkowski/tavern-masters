@@ -26,8 +26,32 @@
     cursor: pointer;
 }
 
+.site {
+    font-size: 25px;
+}
 /* selected link */
-.name:link {
+.site:link {
+    color: white;
+}
+
+/* unvisited link */
+.site:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.site:visited {
+    text-decoration: brown;
+}
+
+/* mouse over link */
+.site:hover {
+    color: burlywood;
+    cursor: pointer;
+}
+
+/* selected link */
+.site:link {
     color: white;
 }
 
