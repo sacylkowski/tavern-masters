@@ -12,7 +12,7 @@ const CampaignList = ({ campaigns, title }) => {
             <h3>{title}</h3>
             {/* then it will map through the campaigns and show the description and who created it */}
             {campaigns && campaigns.map(campaign => (
-                <div>
+                <div key={campaign._id}>
                     <p className="card-Content">{campaign.campaignDescription}</p>
                     <p className="card-header">
                         <Link
