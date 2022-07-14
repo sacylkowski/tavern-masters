@@ -15,16 +15,16 @@ const Header = () => {
     <header>
       <div className="header">
 
-        <Link to="/home">
-          <h1 className="hometitle">Tavern Masters</h1>
+        <Link to="/home" className="hometitle">
+          <h1>Tavern Masters</h1>
         </Link>
 
         <nav className="nav">
           <Link className='navtitle' to="/home">View Campaigns</Link>
           {Auth.loggedIn() ? (
             <>
-              <Link to="/profile">My Profile</Link>
-              <a href="/" onClick={logout}>
+              <Link className="navtitle" to="/profile">My Profile</Link>
+              <a href="/" onClick={logout} className="navtitle">
                 Logout
               </a>
               {/* modal will show when user is logged in */}
