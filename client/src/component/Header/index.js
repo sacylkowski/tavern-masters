@@ -19,7 +19,7 @@ const Header = () => {
           <h1>Tavern Masters</h1>
         </Link>
 
-        <nav className="">
+        <nav className="nav">
           <Link to="/home">View Campaigns</Link>
           {Auth.loggedIn() ? (
             <>

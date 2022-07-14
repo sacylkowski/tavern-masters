@@ -80,6 +80,7 @@ const CampaignForm = () => {
                             {error && <span> Something went wrong ... </span>}
                     </p>
                     <textarea
+                        className="description"
                         placeholder="..."
                         value={campaignDescription}
                         onChange={handleDescription}

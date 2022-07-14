@@ -1,4 +1,15 @@
-.header {
-    background-color: grey;
+.nav {
+    text-decoration: none;
+    font-size: 30px;
+    text-align: center;
+}
 
+h1 {
+    font-family: Beclave;
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: 2px 2px #000000;
+    text-decoration: none;
 }
