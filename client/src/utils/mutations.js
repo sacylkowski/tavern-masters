@@ -44,7 +44,7 @@ export const ADD_CAMPAIGN = gql`
 
 // add encounter
 export const ADD_encounter = gql`
-    mutation addencounter($encounterName: String!, $encounterDescription: String!, $encounterGiverName: String!, $encounterGiverOccupation: String, $encounterGiverDescription: String, $encounterReward: String) {
+    mutation addencounter($encounterName: String!, $encounterDescription: String!, $encounterGiverName: String, $encounterGiverOccupation: String, $encounterGiverDescription: String, $encounterReward: String) {
         addencounter(encounterName: $encounterName, encounterDescription: $encounterDescription, encounterGiverName: $encounterGiverName, encounterGiverOccupation: $encounterGiverOccupation, encounterGiverDescription: $encounterGiverDescription, encounterReward: $encounterReward) {
             _id
             encounterName
@@ -83,3 +83,17 @@ export const UPDATE_CAMPAIGN = gql`
 `
 
 // update encounter
+
+// add encounter to campaign
+export const ADD_ENCOUNTER_CAMPAIGN = gql`
+    mutation addEncounterCampaign($campaignId: ID!, $encounterId: ID!) {
+  addEncounterCampaign(campaignId: $campaignId, encounterId: $encounterId) {
+    _id
+    campaignName
+    encounters {
+      _id
+      encounterName
+    }
+  }
+} 
+`

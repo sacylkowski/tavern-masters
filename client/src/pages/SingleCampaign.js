@@ -1,42 +1,42 @@
 import React from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import "./singlecampaign.css";
 
 // import CommentList from "../components/CommentList";
 // add comment form if time permits
 
-// import Auth from "../utils/auth";
-// import { useQuery } from "@apollo/client";
-// import { QUERY_CAMPAIGN } from "../utils/queries";
+import Auth from "../utils/auth";
+import { useQuery } from "@apollo/client";
+import { QUERY_CAMPAIGN } from "../utils/queries";
 
 
 const SingleCampaign = (props) => {
-    // // add query here
-    // const { id: campaignId } = useParams();
+    // add query here
+    const { id: campaignId } = useParams();
 
-    // const { loading, data } = useQuery(QUERY_CAMPAIGN, {
-    //   variables: { id: campaignId }
-    // });
+    const { loading, data } = useQuery(QUERY_CAMPAIGN, {
+      variables: { id: campaignId }
+    });
   
-    // const campaign = data?.thought || {};
+    const campaign = data?.thought || {};
   
-    // if (loading) {
-    //   return <div>Loading...</div>;
-    // } 
+    if (loading) {
+      return <div>Loading...</div>;
+    } 
   return (
     <div>
       <div className="">
         <p className="">
-            user's campaigns
-          {/* <span style={{ fontWeight: 700 }} className="">
+            {/* user's campaigns */}
+          <span style={{ fontWeight: 700 }} className="">
             {campaign.username}
           </span>{" "}
-          created their campaign on {campaign.createdAt} */}
+          created their campaign on {campaign.createdAt}
         </p>
         <div className="">
-            Campaign Description
-          {/* <p>{campaign.campaignDescription}</p> */}
+            {/* Campaign Description */}
+          <p>{campaign.campaignDescription}</p>
         </div>
       </div>
 {/* 

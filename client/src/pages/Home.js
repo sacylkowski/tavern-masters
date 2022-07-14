@@ -1,7 +1,6 @@
 import React from 'react';
 import CampaignList from "../component/CampaignList";
 // import CommentList from "../components/CommentList";
-// import CampaignForm from "../components/CampaignForm";
 
 import "./home.css";
 
@@ -15,6 +14,7 @@ const Home = () => {
   
   return (
     <main>
+      
         <h2>Title</h2>
         <p>description</p>
     <div className="">

@@ -1,0 +1,24 @@
+
+.profile {
+    border: 2px solid white;
+    border-radius: 7px;
+    background: rgba(92, 64, 51, 0.85);
+    width: 75%;
+    height: fit-content;
+    min-height: 350px;
+    margin: auto;
+}
+
+.userprofile {
+    font-family: Beeclave;
+    font-size: x-large;
+    font-weight: bolder;
+    color: bisque;
+    margin: 10px;
+}
+
+.campaignlist {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    text-align: center;
+}

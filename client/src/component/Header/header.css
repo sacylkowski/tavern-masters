@@ -1,0 +1,52 @@
+.header {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+h1 {
+    font-family: Beclave;
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: 2px 2px #000000;
+}
+
+h1:hover{
+    cursor: default;
+}
+
+.nav {
+    text-decoration: none;
+    font-size: 30px;
+    text-align: center;
+}
+
+.navtitle {
+    margin: 30px;
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* unvisited link */
+.navtitle:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.navtitle:visited {
+    text-decoration: none;
+}
+
+/* mouse over link */
+.navtitle:hover {
+    color: burlywood;
+    cursor: pointer;
+}
+
+/* selected link */
+.navtitle:link {
+    color: white;
+}

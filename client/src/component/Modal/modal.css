@@ -4,17 +4,19 @@
   }
 
 .modal {
-    border: 2px solid white;
+    border: 3px solid #1B0000;
     border-radius: 7px;
-    background: rgba(194, 168, 149, 0.9);
-    width: 45%;
-    min-height: 250px;
+    width: 80%;
+    min-height: 300px;
     margin: auto;
+    background-image: url(../../img/notice-board.jpeg);
+     
 }
 
 .modal-title {
 font-family: Beclave;
-font-size: 35px;
+font-size: 50px;
+text-shadow: 2px 2px #000000;
 }
 
 .campaign-form {

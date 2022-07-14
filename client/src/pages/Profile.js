@@ -3,7 +3,6 @@ import { Navigate, useParams } from "react-router-dom";
 
 import "./profile.css";
 
-// import CampaignForm from "../components/CampaignForm";
 // import CampaignList from "../components/CampaignList";
 
 import { useQuery } from '@apollo/client';
@@ -36,20 +35,19 @@ const Profile = (props) => {
     //   }
 
     return (
-      <div>
+      <div className='profile'>
         <div className="">
-          <h2 className="">
+          <h2 className="userprofile">
             {userParam ? `${user.username}'s` : 'Your'} profile.
           </h2>
         </div>
   
-        <div className="">
+        <div className="campaignlist">
           <div className="">
             User's campaigns
             {/* <CampaignList campaigns={user.campaigns} title={`${user.username}'s campaigns...`} /> */}
           </div>
         </div>
-        {/* <div className="mb-3">{!userParam && <CampaignForm />}</div> */}
       </div>
     );
   };

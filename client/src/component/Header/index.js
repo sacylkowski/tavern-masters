@@ -13,14 +13,14 @@ const Header = () => {
   };
   return (
     <header>
-      <div>
+      <div className="header">
 
         <Link to="/home">
           <h1>Tavern Masters</h1>
         </Link>
 
-        <nav className="">
-          <Link to="/home">View Campaigns</Link>
+        <nav className="nav">
+          <Link className='navtitle' to="/home">View Campaigns</Link>
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile">My Profile</Link>
@@ -35,8 +35,8 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link className='navtitle' to="/login">Login</Link>
+              <Link className='navtitle' to="/">Signup</Link>
             </>
           )}
         </nav>

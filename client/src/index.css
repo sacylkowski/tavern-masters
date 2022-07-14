@@ -11,12 +11,3 @@ body {
   src: local("Beclave"), url(./fonts/Beclave\ Demo.ttf) format("truetype");
 }
 
-h1 {
-  font-family: Beclave;
-  font-size: 80px;
-  color: white;
-  text-align: center;
-  padding-top: 20px;
-  text-shadow: 2px 2px #000000;
-  
-}
