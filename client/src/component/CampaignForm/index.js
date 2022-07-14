@@ -47,9 +47,10 @@ const CampaignForm = () => {
 
         try {
             await addCampaign({
-                variables: {CampaignDescription}
+                variables: {CampaignDescription, CampaignName}
             });
 
+            setName('');
             setDescription('');
             setCharacterCount(0);
         }   catch (event) {
