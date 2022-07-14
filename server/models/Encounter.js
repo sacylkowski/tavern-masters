@@ -14,7 +14,7 @@ const encounterSchema = new Schema(
           },
         encounterGiverName: {
             type: String,
-            required: 'There must be an encounter giver!',
+            // required: 'There must be an encounter giver!',
             minlength: 1,
             maxlength: 20
         },
