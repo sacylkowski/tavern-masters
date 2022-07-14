@@ -6,8 +6,8 @@ import { ADD_CAMPAIGN } from '../../utils/mutations'
 import { QUERY_CAMPAIGNS, QUERY_ME} from '../../utils/queries'
 
 const CampaignForm = () => {
-    const [CampaignName, setName] = useState('');
-    const [CampaignDescription, setDescription] = useState('');
+    const [campaignName, setName] = useState('');
+    const [campaignDescription, setDescription] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
     const [ addCampaign, { error } ] = useMutation(ADD_CAMPAIGN, {
@@ -48,7 +48,7 @@ const CampaignForm = () => {
 
         try {
             await addCampaign({
-                variables: {CampaignDescription, CampaignName}
+                variables: {campaignDescription, campaignName}
             });
 
             setName('');
@@ -68,7 +68,7 @@ const CampaignForm = () => {
                     <h3>Campaign name:</h3>
                     <textarea
                         placeholder="..."
-                        value={CampaignName}
+                        value={campaignName}
                         onChange={handleName}
                     ></textarea>
 
@@ -81,7 +81,7 @@ const CampaignForm = () => {
                     </p>
                     <textarea
                         placeholder="..."
-                        value={CampaignDescription}
+                        value={campaignDescription}
                         onChange={handleDescription}
                     ></textarea> <br />
 
