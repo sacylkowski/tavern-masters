@@ -83,3 +83,17 @@ export const UPDATE_CAMPAIGN = gql`
 `
 
 // update encounter
+
+// add encounter to campaign
+export const ADD_ENCOUNTER_CAMPAIGN = gql`
+    mutation addEncounterCampaign($campaignId: ID!, $encounterId: ID!) {
+  addEncounterCampaign(campaignId: $campaignId, encounterId: $encounterId) {
+    _id
+    campaignName
+    encounters {
+      _id
+      encounterName
+    }
+  }
+} 
+`
