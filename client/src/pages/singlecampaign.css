@@ -10,15 +10,16 @@ body {
 .cALL {
     border: 2px solid white;
     border-radius: 7px;
-    background: rgba(92, 64, 51, 0.85);
+    background: rgba(194, 168, 149, 0.9);
     width: 75%;
     height: fit-content;
     min-height: 350px;
     margin: auto;
+    text-align: center;
 }
 
 .ctitle {
-    font-family: Beeclave;
+    font-family: Beclave;
     font-size: x-large;
     font-weight: bolder;
     color: bisque;
@@ -26,7 +27,8 @@ body {
 }
 
 .cdescription {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: medium;
     color: aliceblue;
+    text-shadow: none;
 }

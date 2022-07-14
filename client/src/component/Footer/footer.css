@@ -7,9 +7,15 @@
     background-color: #333333;
 }
 
+.footerwords {
+    font-size: 20px;
+}
+
 .name {
     color: azure;
+    font-size: 15px;
 }
+
 /* unvisited link */
 .name:link {
     text-decoration: none;
@@ -27,7 +33,7 @@
 }
 
 .site {
-    font-size: 25px;
+    font-size: 18px;
 }
 /* selected link */
 .site:link {

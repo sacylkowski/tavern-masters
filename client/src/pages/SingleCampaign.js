@@ -19,7 +19,7 @@ const SingleCampaign = (props) => {
       variables: { id: campaignId }
     });
   
-    const campaign = data?.thought || {};
+    const campaign = data?.campaign || {};
   
     if (loading) {
       return <div>Loading...</div>;

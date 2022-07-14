@@ -1,0 +1,52 @@
+
+/* unvisited link */
+.campaignname:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.campaignname:visited {
+    text-decoration: none;
+}
+
+.campaignname {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: none;
+    font-weight: bold;
+    font-size: 30px;
+    color: #38250E;
+    text-decoration: none;
+} 
+
+.a {
+    text-decoration: none;
+}
+
+.campaigndescription {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* text-align: center; */
+    text-shadow: none;
+white-space: nowrap;
+}
+
+.creator {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #4A3728;
+    text-shadow: none;
+} 
+
+/* unvisited link */
+.creator:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.creator:visited {
+    text-decoration: none;
+}
+
+.container {
+    padding-bottom: 200px;
+    padding-left: 20%;
+}

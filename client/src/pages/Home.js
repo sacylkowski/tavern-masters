@@ -14,11 +14,11 @@ const Home = () => {
     const campaigns = data?.campaigns || [];
   
   return (
-    <main>
-    <div className="">
+    <main className="campaigns">
+    <div>
           <CampaignList
             campaigns={campaigns} 
-            title="Current Campaigns"
+            title="Current Campaigns:"
           />
       </div>
   </main>
