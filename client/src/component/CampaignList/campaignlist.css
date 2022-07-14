@@ -18,8 +18,9 @@
     text-decoration: none;
 } 
 
-.a {
+a {
     text-decoration: none;
+    color: #38250E;
 }
 
 .campaigndescription {
