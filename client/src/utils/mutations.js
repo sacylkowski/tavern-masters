@@ -35,9 +35,6 @@ export const ADD_CAMPAIGN = gql`
             campaignDescription
             createdAt
             username
-            encounters {
-                _id
-            }
         }
     }
 `;

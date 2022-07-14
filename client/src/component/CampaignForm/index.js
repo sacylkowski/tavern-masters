@@ -6,8 +6,7 @@ import { ADD_CAMPAIGN } from '../../utils/mutations'
 import { QUERY_CAMPAIGNS, QUERY_ME} from '../../utils/queries'
 
 const CampaignForm = () => {
-    const [campaignName, setName] = useState('');
-    const [campaignDescription, setDescription] = useState('');
+    const [formState, setFormState ] = useState({ campaignName: '', campaignDescription: '' });
     const [characterCount, setCharacterCount] = useState(0);
 
     const [addCampaign, { error }] = useMutation(ADD_CAMPAIGN, {
@@ -18,7 +17,7 @@ const CampaignForm = () => {
                     query: QUERY_ME,
                     data: { me: { ...me, campaigns: [...me.campaigns, addCampaign] } },
                 });
-            } catch (event) {
+            } catch (e) {
                 console.warn("First Campaign insertion by user!")
             }
 
@@ -30,32 +29,28 @@ const CampaignForm = () => {
         }
     });
 
-    const handleName = (event) => {
-        if (event.target.value.length <= 40) {
-            setName(event.target.value); 
-        }       
-    };
+    const handleChange = (event) => {
+        const { name, value } = event.target;
 
-    const handleDescription = (event) => {
-        if (event.target.value.length <= 400) {
-            setDescription(event.target.value);
-            setCharacterCount(event.target.value.length);
-        }
+        setFormState({
+            ...formState,
+            [name]: value
+        });
     };
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        console.log(formState);
 
         try {
             await addCampaign({
-                variables: { campaignDescription, campaignName },
+                variables: { ...formState },
             });
 
-            setName('');
-            setDescription('');
+            setFormState({ campaignName: '', campaignDescription: '' });
             setCharacterCount(0);
-        }   catch (event) {
-            console.error(event)
+        }   catch (error) {
+            console.error(error)
         }
     };
 
@@ -68,8 +63,11 @@ const CampaignForm = () => {
                     <h3>Campaign name:</h3>
                     <textarea
                         placeholder="..."
-                        value={campaignName}
-                        onChange={handleName}
+                        name='campaignName'
+                        type='campaignName'
+                        id='campaignName'
+                        value={formState.campaignName}
+                        onChange={handleChange}
                     ></textarea>
 
         
@@ -82,8 +80,11 @@ const CampaignForm = () => {
                     <textarea
                         className="description"
                         placeholder="..."
-                        value={campaignDescription}
-                        onChange={handleDescription}
+                        name='campaignDescription'
+                        type='campaignDescription'
+                        id='campaignDescription'
+                        value={formState.campaignDescription}
+                        onChange={handleChange}
                     ></textarea> <br />
 
                     {/* THIS CODE IS FAKE AND DOES NOTHING --BEGIN--*/}

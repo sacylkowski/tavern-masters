@@ -18,8 +18,8 @@ export const QUERY_CAMPAIGNS = gql`
 
 // get a single campaign
 export const QUERY_CAMPAIGN = gql`
-    query campaigns($id: ID!) {
-        campaigns(_id: $id) {
+    query campaign($id: ID!) {
+        campaign(_id: $id) {
             _id
             createdAt
             username

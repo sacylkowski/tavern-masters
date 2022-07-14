@@ -11,28 +11,39 @@ import NoMatch from "./pages/NoMatch";
 import SingleCampaign from "./pages/SingleCampaign";
 
 // ApolloClient Link -- BEGIN --
-  import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from,} from '@apollo/client'
-  import { onError } from '@apollo/client/link/error'
+import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
+import { onError } from '@apollo/client/link/error'
+import { setContext } from '@apollo/client/link/context';
 
-  // in case client runs into error connecting to GraphQl
-  const errorLink = onError(({ graphqlErrors, networkError }) => {
-    if (graphqlErrors) {
-      graphqlErrors.map(({ message, location, path }) => {
-        return alert(`Graphql error ${message}`);
-      });
-    }
-  });
+// in case client runs into error connecting to GraphQl
+const errorLink = onError(({ graphqlErrors, networkError }) => {
+  if (graphqlErrors) {
+    graphqlErrors.map(({ message, location, path }) => {
+      return alert(`Graphql error ${message}`);
+    });
+  }
+});
 
-  // set up link to backend
-  const link = from([
-    errorLink,
-    new HttpLink({ uri: "http://localhost:3001/graphql" }),
-  ]);
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
-  const client = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: link
-  })
+// set up link to backend
+const link = from([
+  errorLink,
+  new HttpLink({ uri: "http://localhost:3001/graphql" }),
+]);
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: authLink.concat(link)
+})
 
 // ApolloClient Link -- END --
 
@@ -57,14 +68,14 @@ function App() {
               path="/"
               element={<Signup />}
             />
+            <Route path="/profile">
+              <Route path=":username" element={<Profile />} />
+              <Route path="" element={<Profile />} />
+            </Route>
             <Route
-              path="/profile"
-              element={<Profile />}
+              path="/campaign/:id"
+              element={<SingleCampaign />}
             />
-            <Route
-                path="/campaign/:id"
-                element={<SingleCampaign />}
-              />
             <Route
               path="*"
               element={<NoMatch />}
@@ -73,7 +84,7 @@ function App() {
         </div >
         <Footer />
       </Router>
-      
+
     </ApolloProvider>
   );
 }

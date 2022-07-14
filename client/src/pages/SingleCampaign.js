@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 
 import "./singlecampaign.css";
 
-// import CommentList from "../components/CommentList";
+// import CommentList from "../component/CommentList";
 // add comment form if time permits
 
-import Auth from "../utils/auth";
+// import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_CAMPAIGN } from "../utils/queries";
 

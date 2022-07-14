@@ -9,14 +9,12 @@ import { QUERY_CAMPAIGNS } from "../utils/queries";
 
 
 const Home = () => {
-    const { loading, data } = useQuery(QUERY_CAMPAIGNS);
+    const { data } = useQuery(QUERY_CAMPAIGNS);
+    console.log(data);
     const campaigns = data?.campaigns || [];
   
   return (
     <main>
-      
-        <h2>Title</h2>
-        <p>description</p>
     <div className="">
           <CampaignList
             campaigns={campaigns} 

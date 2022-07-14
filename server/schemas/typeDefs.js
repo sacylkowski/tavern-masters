@@ -13,6 +13,7 @@ const typeDefs = gql`
     type Campaign {
         _id: ID
         username: String
+        createdAt: String
         campaignName: String
         campaignDescription: String
         encounterCount: Int
@@ -24,6 +25,7 @@ const typeDefs = gql`
     type Encounter {
         _id: ID
         username: String
+        createdAt: String
         encounterGiverName: String
         encounterGiverOccupation: String
         encounterGiverDescription: String
