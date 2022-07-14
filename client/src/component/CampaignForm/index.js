@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client'
 import { ADD_CAMPAIGN } from '../../utils/mutations'
-import {QUERY_CAMPAIGNS, QUERY_ME } from '../../utils/queries'
+import { QUERY_CAMPAIGNS, QUERY_ME} from '../../utils/queries'
 
 const CampaignForm = () => {
     const [CampaignName, setName] = useState('');
@@ -60,8 +60,6 @@ const CampaignForm = () => {
 
     return (
         <div>
-            
-
             <form 
                 onSubmit={handleFormSubmit}>
 
@@ -83,6 +81,27 @@ const CampaignForm = () => {
                         onChange={handleDescription}
                     ></textarea>
                     
+
+                    {/* THIS CODE IS FAKE AND DOES NOTHING --BEGIN--*/}
+                    <select>
+                        <option>Map to a mysterious treasure</option>
+                        <option>Break out of the communal prison</option>
+                        <option>Hunt of a local witch in the woods</option>
+                    </select>
+
+                    <select>
+                        <option>Run in with a gang of thieves</option>
+                        <option>Goblins attack the nearby village</option>
+                        <option>Rescue traveler from a forest fire</option>
+                    </select>
+
+                    <select>
+                        <option>Fight off the big ol dragon</option>
+                        <option>Rescue the princess</option>
+                        <option>Settle down for a beer in the tavern</option>
+                    </select>
+                    {/* THIS CODE IS FAKE AND DOES NOTHING --END--*/}
+
                     <button tpye="submit">
                         Submit
                     </button>
