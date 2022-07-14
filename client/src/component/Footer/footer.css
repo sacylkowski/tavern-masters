@@ -33,12 +33,7 @@
 }
 
 .site {
-<<<<<<< HEAD
-    font-size: 25px;
-    margin-left: 20px;
-=======
     font-size: 18px;
->>>>>>> 626cbc2a08d3f725aec3af6607ade3c1189ec66a
 }
 /* selected link */
 .site:link {

@@ -8,9 +8,9 @@ body {
 }
 
 .profile {
-    border: 2px solid white;
+    border: 2px solid burlywood;
     border-radius: 7px;
-    background: rgba(194, 168, 149, 0.9);
+    background: rgba(92, 64, 51, 0.85);
     width: 75%;
     height: fit-content;
     min-height: 350px;
@@ -18,7 +18,7 @@ body {
 }
 
 .userprofile {
-    font-family: Beclave;
+    font-family: Beeclave;
     font-size: x-large;
     font-weight: bolder;
     color: bisque;
@@ -26,7 +26,8 @@ body {
 }
 
 .campaignlist {
-    font-family: Beclave;
+    font-family: 'Courier New', Courier, monospace;
     font-size: large;
+    text-align: center;
     color: aliceblue;
 }
