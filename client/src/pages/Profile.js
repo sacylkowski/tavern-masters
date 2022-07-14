@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
-const Profile = () => {
+const Profile = (props) => {
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -36,15 +36,14 @@ const Profile = () => {
 
   return (
     <div className='profile'>
-      <div className="">
+      {/* <div className="">
         <h2 className="userprofile">
           {userParam ? `${user.username}'s` : 'Your'} profile.
         </h2>
-      </div>
+      </div> */}
 
       <div className="campaignlist">
         <div className="">
-          User's campaigns
           {<CampaignList campaigns={user.campaigns} title={`${user.username}'s campaigns...`} />}
         </div>
       </div>
