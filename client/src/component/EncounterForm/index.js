@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useMutation } from '@apollo/client'
-import { ADD_encounter } from '../../utils/mutations'
+import { ADD_ENCOUNTER } from '../../utils/mutations'
 import { QUERY_ENCOUNTERS, QUERY_ME } from '../../utils/queries'
 
 const EncounterForm = () => {
@@ -9,22 +9,22 @@ const EncounterForm = () => {
     const [characterCount, setCharacterCount] = useState('');
 
 
-    const [ addencounter, { error } ] = useMutation(ADD_encounter, {
-        update(cache, { data: { addencounter} }) {
+    const [addEncounter, { error }] = useMutation(ADD_ENCOUNTER, {
+        update(cache, { data: { addEncounter } }) {
             try {
                 const { me } = cache.readQuery({ query: QUERY_ME });
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: { ...me, encounters: [...me.encounters, addencounter] } }
+                    data: { me: { ...me, encounters: [...me.encounters, addEncounter] } }
                 });
-            } catch (event) {
+            } catch (e) {
                 console.warn("First Encounter insertion by user!")
             }
 
             const { encounters } = cache.readQuery({ query: QUERY_ENCOUNTERS });
             cache.writeQuery({
                 query: QUERY_ENCOUNTERS,
-                data: { encounters: [addencounter, ...encounters]}
+                data: { encounters: [addEncounter, ...encounters] }
             })
         }
     })
@@ -43,14 +43,15 @@ const EncounterForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        console.log(encounterState);
 
         try {
-            await addencounter({
+            await addEncounter({
                 variables: { ...encounterState }
             });
             setEncounterState({ encounterName: '', encounterDescription: '' });
             setCharacterCount(0);
-        }   catch (e) {
+        } catch (e) {
             console.error(e)
         }
     };
@@ -59,28 +60,31 @@ const EncounterForm = () => {
         <div>
             <form
                 onSubmit={handleFormSubmit}>
-                    
-                    <textarea
-                    placeholder="Encounter Name ..."
+                <h3>Encounter Name:</h3>
+                <textarea
+                    placeholder="..."
+                    name='encounterName'
                     value={encounterState.encounterName}
                     onChange={handleChange}
-                    ></textarea>
+                ></textarea>
 
-                    <p
-                        className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
-                            Character Count: {characterCount}/400
-                            {error && <span> Something went wrong ... </span>}
-                    </p>
+                <h3>Encounter Description:</h3>
+                <p
+                    className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
+                    Character Count: {characterCount}/400
+                    {error && <span> Something went wrong ... </span>}
+                </p>
+                <textarea
+                    className="description"
+                    placeholder='...'
+                    name='encounterDescription'
+                    value={encounterState.encounterDescription}
+                    onChange={handleChange}
+                ></textarea>
 
-                    <textarea
-                        placeholder='Encounter Description ...'
-                        value={encounterState.encounterDescription}
-                        onChange={handleChange}
-                    ></textarea>
-
-                    <button tpye="submit">
-                        Submit
-                    </button>
+                <button tpye="submit">
+                    Submit
+                </button>
             </form>
         </div>
     )

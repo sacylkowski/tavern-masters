@@ -44,7 +44,6 @@ const CampaignForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
 
         try {
             await addCampaign({

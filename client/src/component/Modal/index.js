@@ -7,7 +7,7 @@ const Modal = ({ campaign }) => {
 
     return (
         <div className="modal">
-            <h4 className="modal-title">Work Your Magic:</h4>
+            <h4 className="modal-title">Work Your Magic!</h4>
             <div className="campaign-form">
                 { campaign ? (
                     <>
