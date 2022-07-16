@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import "./campaignform.css";
 
-import { useMutation } from '@apollo/client'
-import { ADD_CAMPAIGN } from '../../utils/mutations'
-import { QUERY_CAMPAIGNS, QUERY_ME } from '../../utils/queries'
+import { useMutation, useQuery } from '@apollo/client'
+import { ADD_CAMPAIGN, ADD_ENCOUNTER_CAMPAIGN } from '../../utils/mutations'
+import { QUERY_CAMPAIGNS, QUERY_ENCOUNTERS, QUERY_ME } from '../../utils/queries'
 
 const CampaignForm = () => {
-    const [formState, setFormState] = useState({ campaignName: '', campaignDescription: '' });
+    const [formState, setFormState] = useState({ campaignName: '', campaignDescription: '', encounterOne: '', encounterTwo: '', encounterThree: '' });
     const [characterCount, setCharacterCount] = useState(0);
+    const { data } = useQuery(QUERY_ENCOUNTERS);
+    const encounters = data?.encounters || [];
 
     const [addCampaign, { error }] = useMutation(ADD_CAMPAIGN, {
         update(cache, { data: { addCampaign } }) {
@@ -28,6 +30,7 @@ const CampaignForm = () => {
             });
         }
     });
+    const [addEncounterCampaign] = useMutation(ADD_ENCOUNTER_CAMPAIGN);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -44,10 +47,21 @@ const CampaignForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        console.log(formState);
 
         try {
-            await addCampaign({
+            const campaign = await addCampaign({
                 variables: { ...formState },
+            });
+            console.log(campaign._id);
+            await addEncounterCampaign({
+                variables: { campaignId: campaign._id, encounterId: formState.encounterOne.key }
+            });
+            await addEncounterCampaign({
+                variables: { campaignId: campaign._id, encounterId: formState.encounterTwo.key }
+            });
+            await addEncounterCampaign({
+                variables: { campaignId: campaign._id, encounterId: formState.encounterThree.key }
             });
 
             setFormState({ campaignName: '', campaignDescription: '' });
@@ -92,25 +106,21 @@ const CampaignForm = () => {
                         onChange={handleChange}
                     ></textarea> <br />
 
-                    {/* THIS CODE IS FAKE AND DOES NOTHING --BEGIN--*/}
-                    <select>
-                        <option>Map to a mysterious treasure</option>
-                        <option>Break out of the communal prison</option>
-                        <option>Hunt of a local witch in the woods</option>
+                    <select onChange={handleChange} name='encounterOne'>
+                        {encounters && encounters.map(encounter => (
+                            <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
+                        ))}
                     </select>
-
-                    <select>
-                        <option>Run in with a gang of thieves</option>
-                        <option>Goblins attack the nearby village</option>
-                        <option>Rescue traveler from a forest fire</option>
+                    <select onChange={handleChange} name='encounterTwo'>
+                        {encounters && encounters.map(encounter => (
+                            <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
+                        ))}
                     </select>
-
-                    <select>
-                        <option>Fight off the big ol dragon</option>
-                        <option>Rescue the princess</option>
-                        <option>Settle down for a beer in the tavern</option>
+                    <select onChange={handleChange} name='encounterThree'>
+                        {encounters && encounters.map(encounter => (
+                            <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
+                        ))}
                     </select>
-                    {/* THIS CODE IS FAKE AND DOES NOTHING --END--*/}
 
                     <button type="submit" className="button">
                         Submit
