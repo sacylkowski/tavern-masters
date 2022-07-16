@@ -36,6 +36,10 @@ const CampaignForm = () => {
             ...formState,
             [name]: value
         });
+
+        if (name === 'campaignDescription') {
+            setCharacterCount(value.length);
+        }
     };
 
     const handleFormSubmit = async (event) => {

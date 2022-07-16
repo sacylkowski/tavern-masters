@@ -5,9 +5,8 @@ import { ADD_encounter } from '../../utils/mutations'
 import { QUERY_ENCOUNTERS, QUERY_ME } from '../../utils/queries'
 
 const EncounterForm = () => {
-    const [encounterName, setName] = useState('')
-    const [encounterDescription, setDescription] = useState('')
-    const [characterCount, setCharacterCount] = useState('')
+    const [encounterState, setEncounterState] = useState({ encounterName: '', encounterDescription: '' });
+    const [characterCount, setCharacterCount] = useState('');
 
 
     const [ addencounter, { error } ] = useMutation(ADD_encounter, {
@@ -30,10 +29,15 @@ const EncounterForm = () => {
         }
     })
 
-    const handleDescription = (event) => {
-        if (event.target.value.length <= 400) {
-            setDescription(event.target.value)
-            setCharacterCount(event.target.value.length)
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        if (value.length <= 400) {
+            setEncounterState({
+                ...encounterState,
+                [name]: value
+            })
+            setCharacterCount(value.length)
         }
     }
 
@@ -42,13 +46,12 @@ const EncounterForm = () => {
 
         try {
             await addencounter({
-                variables: {encounterName, encounterDescription}
+                variables: { ...encounterState }
             });
-            setName('');
-            setDescription('');
+            setEncounterState({ encounterName: '', encounterDescription: '' });
             setCharacterCount(0);
-        }   catch (event) {
-            console.error(event)
+        }   catch (e) {
+            console.error(e)
         }
     };
 
@@ -59,7 +62,8 @@ const EncounterForm = () => {
                     
                     <textarea
                     placeholder="Encounter Name ..."
-                    value={encounterName}
+                    value={encounterState.encounterName}
+                    onChange={handleChange}
                     ></textarea>
 
                     <p
@@ -70,8 +74,8 @@ const EncounterForm = () => {
 
                     <textarea
                         placeholder='Encounter Description ...'
-                        value={encounterDescription}
-                        onChange={handleDescription}
+                        value={encounterState.encounterDescription}
+                        onChange={handleChange}
                     ></textarea>
 
                     <button tpye="submit">

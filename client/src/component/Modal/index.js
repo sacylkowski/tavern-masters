@@ -1,19 +1,23 @@
 import React from "react";
 import CampaignForm from "../CampaignForm";
+import EncounterForm from "../EncounterForm";
 import "./modal.css";
 
-const Modal = (props) => {
-    if (!props.show) {
-        return null
-    }
+const Modal = ({ campaign }) => {
+
     return (
         <div className="modal">
-            <h4 className="modal-title">Campaign creation:</h4>
+            <h4 className="modal-title">Work Your Magic:</h4>
             <div className="campaign-form">
-                <CampaignForm />
-            </div>
-            <div className="modal-footer">
-                <button onClick={props.onClose} className="button">Finish</button>
+                { campaign ? (
+                    <>
+                    <CampaignForm />
+                    </>
+                ) : (
+                    <>
+                    <EncounterForm />
+                    </>
+                ) }
             </div>
         </div>
     )

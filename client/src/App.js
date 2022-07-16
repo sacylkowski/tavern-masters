@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import SingleCampaign from "./pages/SingleCampaign";
+import Modal from "./component/Modal";
 
 // ApolloClient Link -- BEGIN --
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
@@ -75,6 +76,14 @@ function App() {
             <Route
               path="/campaign/:id"
               element={<SingleCampaign />}
+            />
+            <Route
+              path="/create-campaign"
+              element={<Modal campaign={true}/>}
+            />
+            <Route
+              path="/create-encounter"
+              element={<Modal />}
             />
             <Route
               path="*"

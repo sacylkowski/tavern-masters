@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import Modal from '../Modal';
 import "./header.css";
 
 const Header = () => {
-  const [show, setShow] = useState(false)
 
   const logout = event => {
     event.preventDefault();
@@ -24,14 +22,11 @@ const Header = () => {
           {Auth.loggedIn() ? (
             <>
               <Link className="navtitle" to="/profile">My Profile</Link>
+              <Link className='navtitle' to="/create-campaign" campaign={true}>Create Campaign</Link>
+              <Link className='navtitle' to="/create-encounter">Create Encounter</Link>
               <a href="/" onClick={logout} className="navtitle">
                 Logout
               </a>
-              {/* modal will show when user is logged in */}
-              <div className="">
-                <button onClick={() => setShow(true)}>Create Campaign</button>
-                <Modal onClose={() => setShow(false)} show={show} />
-              </div>
             </>
           ) : (
             <>
