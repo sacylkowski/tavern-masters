@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
+import EncounterForm from "./component/EncounterForm";
+import CampaignForm from "./component/CampaignForm";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -9,7 +11,6 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
 import SingleCampaign from "./pages/SingleCampaign";
-import Modal from "./component/Modal";
 
 // ApolloClient Link -- BEGIN --
 import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, } from '@apollo/client'
@@ -79,11 +80,11 @@ function App() {
             />
             <Route
               path="/create-campaign"
-              element={<Modal campaign={true}/>}
+              element={<CampaignForm />}
             />
             <Route
               path="/create-encounter"
-              element={<Modal />}
+              element={<EncounterForm />}
             />
             <Route
               path="*"

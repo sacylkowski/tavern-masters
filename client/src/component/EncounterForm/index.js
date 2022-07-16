@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
 
-import { useMutation } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import { ADD_ENCOUNTER } from '../../utils/mutations'
 import { QUERY_ENCOUNTERS, QUERY_ME } from '../../utils/queries'
 
 const EncounterForm = () => {
     const [encounterState, setEncounterState] = useState({ encounterName: '', encounterDescription: '' });
     const [characterCount, setCharacterCount] = useState('');
-
+    // querying encounters to put them in the cache & prevent cache reading errors, then stopping errors about it
+    const gottagetem = useQuery(QUERY_ENCOUNTERS);
+    const warningStop = () => {
+        // to prevent warnings about not using 'gottagetem'
+        if (gottagetem) {
+            return true;
+        }
+    }
+    warningStop();
 
     const [addEncounter, { error }] = useMutation(ADD_ENCOUNTER, {
         update(cache, { data: { addEncounter } }) {
@@ -43,7 +51,6 @@ const EncounterForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(encounterState);
 
         try {
             await addEncounter({
@@ -57,35 +64,38 @@ const EncounterForm = () => {
     };
 
     return (
-        <div>
-            <form
-                onSubmit={handleFormSubmit}>
-                <h3>Encounter Name:</h3>
-                <textarea
-                    placeholder="..."
-                    name='encounterName'
-                    value={encounterState.encounterName}
-                    onChange={handleChange}
-                ></textarea>
+        <div className="modal">
+            <h4 className="modal-title">Work Your Magic!</h4>
+            <div className="campaign-form">
+                <form
+                    onSubmit={handleFormSubmit}>
+                    <h3>Encounter Name:</h3>
+                    <textarea
+                        placeholder="..."
+                        name='encounterName'
+                        value={encounterState.encounterName}
+                        onChange={handleChange}
+                    ></textarea>
 
-                <h3>Encounter Description:</h3>
-                <p
-                    className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
-                    Character Count: {characterCount}/400
-                    {error && <span> Something went wrong ... </span>}
-                </p>
-                <textarea
-                    className="description"
-                    placeholder='...'
-                    name='encounterDescription'
-                    value={encounterState.encounterDescription}
-                    onChange={handleChange}
-                ></textarea>
+                    <h3>Encounter Description:</h3>
+                    <p
+                        className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
+                        Character Count: {characterCount}/400
+                        {error && <span> Something went wrong ... </span>}
+                    </p>
+                    <textarea
+                        className="description"
+                        placeholder='...'
+                        name='encounterDescription'
+                        value={encounterState.encounterDescription}
+                        onChange={handleChange}
+                    ></textarea>
 
-                <button tpye="submit">
-                    Submit
-                </button>
-            </form>
+                    <button tpye="submit">
+                        Submit
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }

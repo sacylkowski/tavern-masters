@@ -22,7 +22,7 @@ const Header = () => {
           {Auth.loggedIn() ? (
             <>
               <Link className="navtitle" to="/profile">My Profile</Link>
-              <Link className='navtitle' to="/create-campaign" campaign={true}>Create Campaign</Link>
+              <Link className='navtitle' to="/create-campaign">Create Campaign</Link>
               <Link className='navtitle' to="/create-encounter">Create Encounter</Link>
               <a href="/" onClick={logout} className="navtitle">
                 Logout

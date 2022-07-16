@@ -10,7 +10,6 @@ import { QUERY_CAMPAIGNS } from "../utils/queries";
 
 const Home = () => {
     const { data } = useQuery(QUERY_CAMPAIGNS);
-    console.log(data);
     const campaigns = data?.campaigns || [];
   
   return (

@@ -3,10 +3,10 @@ import "./campaignform.css";
 
 import { useMutation } from '@apollo/client'
 import { ADD_CAMPAIGN } from '../../utils/mutations'
-import { QUERY_CAMPAIGNS, QUERY_ME} from '../../utils/queries'
+import { QUERY_CAMPAIGNS, QUERY_ME } from '../../utils/queries'
 
 const CampaignForm = () => {
-    const [formState, setFormState ] = useState({ campaignName: '', campaignDescription: '' });
+    const [formState, setFormState] = useState({ campaignName: '', campaignDescription: '' });
     const [characterCount, setCharacterCount] = useState(0);
 
     const [addCampaign, { error }] = useMutation(ADD_CAMPAIGN, {
@@ -52,17 +52,19 @@ const CampaignForm = () => {
 
             setFormState({ campaignName: '', campaignDescription: '' });
             setCharacterCount(0);
-        }   catch (error) {
+        } catch (error) {
             console.error(error)
         }
     };
 
     return (
-        <div className="campaign-form">
-            
+        <div className="modal">
+            <h4 className="modal-title">Work Your Magic!</h4>
+            <div className="campaign-form">
 
-            <form 
-                onSubmit={handleFormSubmit}>
+
+                <form
+                    onSubmit={handleFormSubmit}>
                     <h3>Campaign name:</h3>
                     <textarea
                         placeholder="..."
@@ -73,12 +75,12 @@ const CampaignForm = () => {
                         onChange={handleChange}
                     ></textarea>
 
-        
+
                     <h3>Campaign description:</h3>
                     <p
                         className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
-                            Character Count: {characterCount}/400
-                            {error && <span> Something went wrong ... </span>}
+                        Character Count: {characterCount}/400
+                        {error && <span> Something went wrong ... </span>}
                     </p>
                     <textarea
                         className="description"
@@ -113,7 +115,8 @@ const CampaignForm = () => {
                     <button type="submit" className="button">
                         Submit
                     </button>
-            </form>
+                </form>
+            </div>
         </div>
     )
 }
