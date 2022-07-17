@@ -91,8 +91,8 @@ const CampaignForm = () => {
 
 
                     <h3>Campaign description:</h3>
-                    <p
-                        className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
+                    <p 
+                        className={`count ${characterCount === 400 || error ? 'text-error' : ''}`}>
                         Character Count: {characterCount}/400
                         {error && <span> Something went wrong ... </span>}
                     </p>

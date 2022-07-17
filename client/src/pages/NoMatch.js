@@ -1,11 +1,13 @@
 import React from 'react';
+import wizard from "../img/wizard.png";
 
 import "./nomatch.css";
 
 const NoMatch = () => {
   return (
-    <div>
-      Oops, we couldn't find that page.
+    <div className='noMatch'>
+      <img src={wizard} alt="wizard" />
+      <div className="oops">You seem to be lost.</div>
     </div>
   );
 };

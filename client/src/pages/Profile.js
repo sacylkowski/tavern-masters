@@ -36,11 +36,11 @@ const Profile = (props) => {
 
   return (
     <div className='profile'>
-      {/* <div className="">
+      <div className="">
         <h2 className="userprofile">
           {userParam ? `${user.username}'s` : 'Your'} profile.
         </h2>
-      </div> */}
+      </div>
 
       <div className="campaignlist">
         <div className="">

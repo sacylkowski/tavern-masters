@@ -1,0 +1,22 @@
+.noMatch {
+    border: 2px solid burlywood;
+    border-radius: 7px;
+    background: rgba(194, 168, 149);
+    width: 50%;
+    height: fit-content;
+    min-height: 350px;
+    margin: auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.oops {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
