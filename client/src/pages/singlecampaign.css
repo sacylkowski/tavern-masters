@@ -1,0 +1,37 @@
+body {
+    background: url(../img/Tavern.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.cALL {
+    border: 2px solid white;
+    border-radius: 7px;
+    background: rgba(194, 168, 149);
+    width: 70%;
+    height: fit-content;
+    min-height: 350px;
+    margin: auto;
+    text-align: center;
+}
+
+.ctitle {
+    font-family: Beclave;
+    font-size: x-large;
+    font-weight: bolder;
+    color: bisque;
+    margin: 10px;
+    padding-top: 30px;
+    font-size: 30px;
+    text-shadow: 2px 2px #000000;
+}
+
+.cdescription {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+    color: black;
+    font-size: 25px;
+}

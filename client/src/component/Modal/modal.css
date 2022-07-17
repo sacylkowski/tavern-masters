@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "Beclave";
+    src: local("Beclave"), url(../../fonts/Beclave\ Demo.ttf) format("truetype");
+  }
+
+.modal {
+    border: 3px solid #1B0000;
+    border-radius: 7px;
+    width: 80%;
+    min-height: 300px;
+    margin: auto;
+    background-image: url(../../img/notice-board.jpeg);
+     
+}
+
+.modal-title {
+font-family: Beclave;
+font-size: 50px;
+text-shadow: 2px 2px #000000;
+}
+
+.campaign-form {
+    text-align: center;
+    font-size: 25px;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.button {
+    font-size: 20px;
+}

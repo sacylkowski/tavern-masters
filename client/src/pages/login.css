@@ -1,0 +1,45 @@
+body {
+    background: url(../img/main-page.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.loginstyle {
+    border: 2px solid white;
+    border-radius: 7px;
+    background: rgba(194, 168, 149, 0.9);
+    width: 45%;
+    min-height: 250px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-family: Beclave;
+    font-size: larger;
+}
+
+.inputs {
+    text-align: center;
+}
+
+input {
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+    background-color: blanchedalmond;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: greenyellow;
+}

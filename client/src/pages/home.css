@@ -1,0 +1,15 @@
+.campaigns {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid white;
+    border-radius: 7px;
+    background: rgba(194, 168, 149);
+    width: 65%;
+    min-height: 250px;
+    margin: auto;
+    display: flex;
+    justify-content: left;
+    font-family: Beclave;
+    /* align-items: center; */
+}
+
+

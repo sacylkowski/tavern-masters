@@ -1,0 +1,76 @@
+.footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(51, 51, 51)
+}
+
+.footerwords {
+    font-size: 20px;
+    color: azure;
+}
+
+.name {
+    color: azure;
+    font-size: 15px;
+}
+
+/* unvisited link */
+.name:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.name:visited {
+    text-decoration: brown;
+}
+
+/* mouse over link */
+.name:hover {
+    color: burlywood;
+    cursor: pointer;
+}
+
+.site {
+    font-size: 18px;
+}
+/* selected link */
+.site:link {
+    color: white;
+}
+
+/* unvisited link */
+.site:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.site:visited {
+    text-decoration: white;
+}
+
+/* mouse over link */
+.site:hover {
+    color: burlywood;
+    cursor: pointer;
+}
+
+/* selected link */
+.site:link {
+    color: white;
+}
+
+/*footer tab*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .footerwords {
+        font-size: 25px; 
+        }
+    }
+    
+    /* Mobile :320px. */
+    @media (max-width: 767px) {
+    .footerwords {
+        font-size: 15px; 
+        }
+    }

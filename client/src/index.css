@@ -1,21 +1,13 @@
 body {
-  font-family: 'Rubik', sans-serif;
-  background-image: url("img/Tavern.jpeg");
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("img/main-page.jpg");
+  background-size: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Rubik Mono One', sans-serif;
-  color: white;
-  text-align: center;
-  padding-top: 20px;
+@font-face {
+  font-family: "Beclave";
+  src: local("Beclave"), url(./fonts/Beclave\ Demo.ttf) format("truetype");
 }
 
-.small {
-  font-weight: 300;
-  font-style: italic;
-}

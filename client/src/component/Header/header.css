@@ -1,0 +1,98 @@
+.header {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+h1 {
+    font-family: Beclave;
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: 2px 2px #000000;
+}
+
+h1:hover{
+    cursor: default;
+}
+
+/* unvisited link */
+.hometitle:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.hometitle:visited {
+    text-decoration: none;
+}
+
+.nav {
+    text-decoration: none;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.navtitle {
+    margin: 30px;
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+/* unvisited link */
+.navtitle:link {
+    text-decoration: none;
+}
+
+/* visited link */
+.navtitle:visited {
+    text-decoration: none;
+}
+
+/* mouse over link */
+.navtitle:hover {
+    color: burlywood;
+    cursor: pointer;
+}
+
+/* selected link */
+.navtitle:link {
+    color: white;
+}
+
+/*nav*/
+/* Tablet:768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    .nav {
+      font-size: 26px; 
+     }
+    .navtitle {
+        margin: 20px;
+       }  
+   }
+  
+   /* Mobile :320px. */
+   @media (max-width: 767px) {
+    .nav {
+        font-size: 18px; 
+       }
+    .navtitle {
+        margin: 10px;
+        }  
+    }
+
+/*Header*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .hometitle {
+        font-size: 70px; 
+        }
+    }
+    
+    /* Mobile :320px. */
+    @media (max-width: 767px) {
+    .hometitle {
+        font-size: 45px; 
+        }
+    }

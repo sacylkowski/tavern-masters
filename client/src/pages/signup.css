@@ -1,0 +1,48 @@
+body {
+    background-image: url("../img/Tavern.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.signupbox {
+    border: 2px solid white;
+    border-radius: 7px;
+    background: rgba(194, 168, 149, 0.9);
+    width: 45%;
+    min-height: 250px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-size: larger;
+}
+
+.inputs {
+    text-align: center;
+}
+
+input {
+    margin: 5px;
+    min-height: 30px;
+}
+
+button {
+    margin: 15px;
+    background-color: blanchedalmond;
+    box-shadow: 2px 2px 2px 2px;
+    min-height: 30px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: greenyellow;
+}

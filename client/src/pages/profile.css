@@ -1,0 +1,34 @@
+body {
+    background: url(../img/Tavern.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.profile {
+    border: 2px solid burlywood;
+    border-radius: 7px;
+    background: rgba(194, 168, 149);
+    width: 70%;
+    height: fit-content;
+    min-height: 350px;
+    margin: auto;
+}
+
+.userprofile {
+    font-family: "Beclave";
+    font-size: x-large;
+    font-weight: bolder;
+    color: bisque;
+    margin: 10px;
+    text-shadow: 2px 2px #000000;
+}
+
+.campaignlist {
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-size: large;
+    color: aliceblue;
+    font-family: "Beclave";
+}
