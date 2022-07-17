@@ -11,7 +11,6 @@ export const QUERY_CAMPAIGNS = gql`
             username
             campaignName
             campaignDescription
-            encounterCount
         }
     }
 `;
@@ -121,12 +120,8 @@ export const QUERY_ENCOUTER = gql`
             _id
             createdAt
             username
-            encounterGiverName
-            encounterGiverOccupation
-            encounterGiverDescription
             encounterName
             encounterDescription
-            encounterReward
         }
     }
 `
