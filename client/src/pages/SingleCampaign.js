@@ -66,41 +66,44 @@ const SingleCampaign = (props) => {
           <span style={{ fontWeight: 700 }} className="">
             {campaign.username}
           </span>{" "}
-          created their campaign on {campaign.createdAt}
+          created {campaign.campaignName} on {campaign.createdAt}
         </p>
         <div className="cdescription">
           {/* Campaign Description */}
           <p>{campaign.campaignDescription}</p>
         </div>
         <div>
-          <ul>
-            {campaign.encounters.map(encounter => (
-              <li key={encounter._id}>{encounter.encounterName}</li>
-            ))}
-          </ul>
+
+          {campaign.encounters.map(encounter => (
+            <>
+              <h4 key={encounter._id}>{encounter.encounterName}</h4>
+              <p>{encounter.encounterDescription}</p>
+            </>
+          ))}
+
         </div>
         {campaign.username === Auth.getProfile().data.username ? (
-        <div>
-          <h4>Add Encounters!</h4>
-          <select onChange={handleChange} name='encounterOne'>
-            {encounters && encounters.map(encounter => (
-              <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
-            ))}
-          </select>
-          <select onChange={handleChange} name='encounterTwo'>
-            {encounters && encounters.map(encounter => (
-              <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
-            ))}
-          </select>
-          <select onChange={handleChange} name='encounterThree'>
-            {encounters && encounters.map(encounter => (
-              <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
-            ))}
-          </select>
-          <button type="submit" className="button" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
+          <div>
+            <h4>Add Encounters!</h4>
+            <select onChange={handleChange} name='encounterOne'>
+              {encounters && encounters.map(encounter => (
+                <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
+              ))}
+            </select>
+            <select onChange={handleChange} name='encounterTwo'>
+              {encounters && encounters.map(encounter => (
+                <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
+              ))}
+            </select>
+            <select onChange={handleChange} name='encounterThree'>
+              {encounters && encounters.map(encounter => (
+                <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
+              ))}
+            </select>
+            <button type="submit" className="button" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
         ) : (
           <></>
         )}
