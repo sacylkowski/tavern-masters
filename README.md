@@ -1,6 +1,7 @@
 # Tavern Masters
 
  ## Description
+
 This app is designed to help dungeon masters create campaigns.  When a user is logged in, they can save campaigns and encounters that may occur on their journey.
 
 ## Installation
