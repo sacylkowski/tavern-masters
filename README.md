@@ -13,7 +13,7 @@ This app is designed to help dungeon masters create campaigns.  When a user is l
 
 <a href="">Here is the live site.</a>
 
-<img src="client/src/img/app-running.png" alt="image of program running" width="1206" />
+<img src="./client/src/img/app-running.png" alt="image of program running" width="1206" />
   
   ## Collaborators
   * Erik Rockenmeyer
