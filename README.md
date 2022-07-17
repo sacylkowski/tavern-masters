@@ -1,7 +1,7 @@
 # Tavern Masters
 
  ## Description
-This app is designed to help DMs create campaigns.  When a user is logged in, they can save campaigns and also comment on other's campaigns.  There is a bulletin board with random events that users can use for their campaign.
+This app is designed to help dungeon masters create campaigns.  When a user is logged in, they can save campaigns and encounters that may occur on their journey.
 
 ## Installation
   To install required dependecies, use: 
@@ -13,8 +13,16 @@ This app is designed to help DMs create campaigns.  When a user is logged in, th
 
 <a href="">Here is the live site.</a>
 
-<img src="" alt="image of program running" width="1206" />
+<img src="client/src/img/app-running.png" alt="image of program running" width="1206" />
   
+  ## Collaborators
+  * Erik Rockenmeyer
+  * Sarah Cylkowski
+  * Thomas Ruppeniner
+  * Alexander Lu
+  * Grace Marcoux
+
+
  ## Built With
  This application is built with: <br />
  * React
