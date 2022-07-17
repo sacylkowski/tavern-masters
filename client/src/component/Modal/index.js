@@ -2,6 +2,7 @@ import React from "react";
 import CampaignForm from "../CampaignForm";
 import EncounterForm from "../EncounterForm";
 import "./modal.css";
+import "../EncounterForm/encounterform.css";
 
 const Modal = ({ campaign }) => {
 

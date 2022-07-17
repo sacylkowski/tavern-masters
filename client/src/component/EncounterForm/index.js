@@ -79,7 +79,7 @@ const EncounterForm = () => {
 
                     <h3>Encounter Description:</h3>
                     <p
-                        className={` ${characterCount === 400 || error ? 'text-error' : ''}`}>
+                        className={`count ${characterCount === 400 || error ? 'text-error' : ''}`}>
                         Character Count: {characterCount}/400
                         {error && <span> Something went wrong ... </span>}
                     </p>
@@ -91,7 +91,7 @@ const EncounterForm = () => {
                         onChange={handleChange}
                     ></textarea>
 
-                    <button tpye="submit">
+                    <button type="submit" className="button">
                         Submit
                     </button>
                 </form>

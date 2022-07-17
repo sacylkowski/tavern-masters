@@ -4,7 +4,7 @@ import "./campaignlist.css";
 
 const CampaignList = ({ campaigns, title }) => {
     if (!campaigns.length) {
-        return <h3>No Campaigns to Display!</h3>
+        return <h3>There are no campaigns yet!</h3>
     }
 
     return(
