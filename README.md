@@ -1,7 +1,7 @@
 # Tavern Masters
 
  ## Description
-This app is designed to help DMs create campaigns.  When a user is logged in, they can save campaigns and also comment on other's campaigns.  There is a bulletin board with random events that users can use for their campaign.
+This app is designed to help DMs create campaigns.  When a user is logged in, they can save campaigns, save encounters, and add encounters to their campaigns.
 
 ## Installation
   To install required dependecies, use: 
