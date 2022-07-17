@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import "./campaignform.css";
 
-import { useMutation, useQuery } from '@apollo/client'
-import { ADD_CAMPAIGN, ADD_ENCOUNTER_CAMPAIGN } from '../../utils/mutations'
-import { QUERY_CAMPAIGNS, QUERY_ENCOUNTERS, QUERY_ME } from '../../utils/queries'
+import { useMutation } from '@apollo/client'
+import { ADD_CAMPAIGN } from '../../utils/mutations'
+import { QUERY_CAMPAIGNS, QUERY_ME } from '../../utils/queries'
 
 const CampaignForm = () => {
     const [formState, setFormState] = useState({ campaignName: '', campaignDescription: '', encounterOne: '', encounterTwo: '', encounterThree: '' });
     const [characterCount, setCharacterCount] = useState(0);
-    const { data } = useQuery(QUERY_ENCOUNTERS);
-    const encounters = data?.encounters || [];
 
     const [addCampaign, { error }] = useMutation(ADD_CAMPAIGN, {
         update(cache, { data: { addCampaign } }) {
@@ -30,7 +28,6 @@ const CampaignForm = () => {
             });
         }
     });
-    const [addEncounterCampaign] = useMutation(ADD_ENCOUNTER_CAMPAIGN);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -47,21 +44,10 @@ const CampaignForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
 
         try {
-            const campaign = await addCampaign({
+            await addCampaign({
                 variables: { ...formState },
-            });
-            console.log(campaign._id);
-            await addEncounterCampaign({
-                variables: { campaignId: campaign._id, encounterId: formState.encounterOne.key }
-            });
-            await addEncounterCampaign({
-                variables: { campaignId: campaign._id, encounterId: formState.encounterTwo.key }
-            });
-            await addEncounterCampaign({
-                variables: { campaignId: campaign._id, encounterId: formState.encounterThree.key }
             });
 
             setFormState({ campaignName: '', campaignDescription: '' });
@@ -105,22 +91,6 @@ const CampaignForm = () => {
                         value={formState.campaignDescription}
                         onChange={handleChange}
                     ></textarea> <br />
-
-                    <select onChange={handleChange} name='encounterOne'>
-                        {encounters && encounters.map(encounter => (
-                            <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
-                        ))}
-                    </select>
-                    <select onChange={handleChange} name='encounterTwo'>
-                        {encounters && encounters.map(encounter => (
-                            <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
-                        ))}
-                    </select>
-                    <select onChange={handleChange} name='encounterThree'>
-                        {encounters && encounters.map(encounter => (
-                            <option key={encounter._id} value={encounter._id} >{encounter.encounterName}</option>
-                        ))}
-                    </select>
 
                     <button type="submit" className="button">
                         Submit
