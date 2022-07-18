@@ -12,7 +12,7 @@ This app is designed to help dungeon masters create campaigns.  When a user is l
   To run the app locally, open two command lines (one for client and one for server) and enter: `npm start`. <br />
   You can checkout the site below: <br />
 
-<a href="">Here is the live site.</a>
+<a href="https://tavern-masters.herokuapp.com/">Here is the live site.</a>
 
 <img src="./client/src/img/app-running.png" alt="image of program running" width="1206" />
   
